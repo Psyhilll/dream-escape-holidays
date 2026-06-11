@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Escape Holidays – Discover Incredible India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --saffron:#E8650A;
+  --saffron-light:#F5A05A;
+  --saffron-pale:#FDF0E6;
+  --teal:#176B6B;
+  --teal-light:#2A9090;
+  --teal-deep:#0D4545;
+  --cream:#FDFAF4;
+  --cream-dark:#F4EDD8;
+  --cream-border:#EDE3C8;
+  --text:#1A1A1A;
+  --text-mid:#4A4845;
+  --text-muted:#8A8680;
+  --fd:'Cormorant Garamond',Georgia,serif;
+  --fb:'DM Sans',system-ui,sans-serif;
+  --radius:3px;
+}
+body{font-family:var(--fb);background:var(--cream);color:var(--text);font-size:16px;line-height:1.65}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+button{font-family:var(--fb)}
+
+/* ── UTILITY ── */
+.hidden{display:none!important}
+.page{display:none}
+.page.active{display:block}
+
+/* ── NAV ── */
+#mainNav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 52px;
+  background:rgba(253,250,244,0.94);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(232,101,10,0.12);
+  transition:padding 0.3s;
+}
+#mainNav.scrolled{padding:12px 52px;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.nav-logo{
+  font-family:var(--fd);font-size:20px;font-weight:600;letter-spacing:0.02em;
+  color:var(--teal-deep);line-height:1.2;
+}
+.nav-logo span{color:var(--saffron)}
+.nav-logo small{display:block;font-family:var(--fb);font-size:10px;font-weight:400;letter-spacing:0.15em;text-transform:uppercase;color:var(--text-muted)}
+.nav-links{display:flex;gap:36px;align-items:center}
+.nav-links a{font-size:14px;color:var(--text-mid);letter-spacing:0.03em;transition:color 0.2s;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--saffron)}
+.nav-wa{
+  display:flex;align-items:center;gap:8px;
+  background:var(--teal);color:#fff;
+  padding:9px 18px;border-radius:var(--radius);
+  font-size:13px;font-weight:500;letter-spacing:0.04em;
+  transition:background 0.2s;
+}
+.nav-wa:hover{background:var(--teal-deep)}
+.nav-wa svg{width:16px;height:16px;fill:#fff;flex-shrink:0}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text)}
+.mob-menu{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:490;
+  background:var(--cream);padding:80px 32px 32px;flex-direction:column;gap:28px;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:22px;font-family:var(--fd);color:var(--teal-deep);cursor:pointer}
+.mob-menu-close{position:absolute;top:20px;right:24px;background:none;border:none;font-size:26px;cursor:pointer;color:var(--text-mid)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;padding:140px 52px 100px;
+  display:flex;align-items:center;
+  background:
+    linear-gradient(160deg,rgba(13,69,69,0.7) 0%,rgba(13,69,69,0.35) 50%,rgba(244,237,216,0.9) 100%),
+    url('https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1600&q=80') center/cover no-repeat;
+  position:relative;
+}
+.hero-content{max-width:620px}
+.hero-badge{
+  display:inline-block;margin-bottom:20px;
+  background:rgba(232,101,10,0.15);color:var(--saffron-light);
+  border:1px solid rgba(232,101,10,0.3);
+  font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;
+  padding:6px 14px;border-radius:2px;
+}
+.hero h1{
+  font-family:var(--fd);font-size:clamp(46px,6.5vw,82px);
+  font-weight:300;line-height:1.08;color:#fff;margin-bottom:20px;
+}
+.hero h1 em{font-style:italic;color:var(--saffron-light)}
+.hero p{font-size:17px;font-weight:300;color:rgba(255,255,255,0.82);margin-bottom:36px;max-width:480px;line-height:1.75}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{
+  background:var(--saffron);color:#fff;border:none;
+  padding:14px 32px;border-radius:var(--radius);
+  font-size:13px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;
+  cursor:pointer;transition:background 0.2s;
+}
+.btn-primary:hover{background:#c4540a}
+.btn-ghost{
+  background:transparent;color:#fff;
+  border:1px solid rgba(255,255,255,0.4);
+  padding:13px 32px;border-radius:var(--radius);
+  font-size:13px;font-weight:400;letter-spacing:0.05em;
+  cursor:pointer;transition:all 0.2s;
+}
+.btn-ghost:hover{border-color:rgba(255,255,255,0.85);background:rgba(255,255,255,0.08)}
+.hero-scroll{
+  position:absolute;bottom:36px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:rgba(255,255,255,0.5);font-size:11px;letter-spacing:0.1em;
+}
+.hero-scroll::after{
+  content:'';display:block;width:1px;height:40px;
+  background:linear-gradient(to bottom,rgba(255,255,255,0.4),transparent);
+}
+
+/* ── SECTION COMMON ── */
+.sec-head{text-align:center;padding:72px 24px 48px}
+.sec-eye{font-size:11px;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--saffron);margin-bottom:12px}
+.sec-head h2{font-family:var(--fd);font-size:clamp(30px,4vw,50px);font-weight:300;color:var(--teal-deep);line-height:1.2}
+.sec-head h2 em{font-style:italic}
+.sec-head p{margin-top:14px;font-size:15px;color:var(--text-mid);max-width:480px;margin-inline:auto}
+
+/* ── PACKAGE CARDS ── */
+#packagesSection{background:var(--cream)}
+.packages-wrap{max-width:1200px;margin:0 auto;padding:0 52px 80px}
+.packages-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px}
+.pkg-card{
+  background:#fff;border-radius:4px;overflow:hidden;
+  border:1px solid var(--cream-border);
+  display:flex;flex-direction:column;
+  transition:transform 0.25s,box-shadow 0.25s;cursor:pointer;
+}
+.pkg-card:hover{transform:translateY(-5px);box-shadow:0 18px 48px rgba(13,69,69,0.12)}
+.pkg-card-img{position:relative;height:220px;overflow:hidden;background:var(--teal-deep)}
+.pkg-card-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s}
+.pkg-card:hover .pkg-card-img img{transform:scale(1.04)}
+.pkg-card-badge{
+  position:absolute;top:14px;left:14px;
+  background:rgba(232,101,10,0.9);color:#fff;
+  font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
+  padding:4px 10px;border-radius:2px;
+}
+.pkg-card-nights{
+  position:absolute;bottom:14px;right:14px;
+  background:rgba(0,0,0,0.55);color:#fff;
+  font-size:12px;padding:4px 10px;border-radius:2px;
+}
+.pkg-card-body{padding:22px 22px 18px;flex:1;display:flex;flex-direction:column}
+.pkg-card-body h3{font-family:var(--fd);font-size:22px;font-weight:400;color:var(--teal-deep);margin-bottom:8px;line-height:1.2}
+.pkg-card-body p{font-size:14px;color:var(--text-mid);flex:1;margin-bottom:16px;line-height:1.65;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.pkg-card-foot{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--cream-border)}
+.pkg-price{font-family:var(--fd);font-size:24px;color:var(--teal-deep)}
+.pkg-price small{font-family:var(--fb);font-size:11px;color:var(--text-muted);font-weight:400}
+.btn-view{
+  background:var(--teal);color:#fff;border:none;
+  padding:9px 18px;border-radius:var(--radius);
+  font-size:12px;font-weight:500;letter-spacing:0.06em;
+  text-transform:uppercase;cursor:pointer;transition:background 0.2s;
+}
+.btn-view:hover{background:var(--teal-deep)}
+.no-pkg{grid-column:1/-1;text-align:center;padding:60px 0;font-family:var(--fd);font-size:22px;font-style:italic;color:var(--text-muted)}
+
+/* ── PACKAGE DETAIL PAGE ── */
+#pkgDetailPage{padding-top:74px}
+.pkg-detail-hero{
+  position:relative;height:420px;overflow:hidden;background:var(--teal-deep);
+}
+.pkg-detail-hero img{width:100%;height:100%;object-fit:cover;opacity:0.75}
+.pkg-detail-hero-text{
+  position:absolute;inset:0;display:flex;flex-direction:column;
+  justify-content:flex-end;padding:40px 52px;
+  background:linear-gradient(to top,rgba(13,69,69,0.85) 0%,transparent 60%);
+}
+.pkg-detail-hero-text .badge{
+  display:inline-block;margin-bottom:12px;
+  background:var(--saffron);color:#fff;
+  font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  padding:4px 12px;border-radius:2px;
+}
+.pkg-detail-hero-text h1{
+  font-family:var(--fd);font-size:clamp(32px,4vw,56px);
+  font-weight:300;color:#fff;line-height:1.1;
+}
+.pkg-detail-back{
+  margin:24px 52px 0;display:inline-flex;align-items:center;gap:8px;
+  color:var(--teal);font-size:14px;cursor:pointer;transition:color 0.2s;
+}
+.pkg-detail-back:hover{color:var(--saffron)}
+.pkg-detail-back svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2}
+
+.pkg-detail-body{max-width:1160px;margin:0 auto;padding:32px 52px 80px;display:grid;grid-template-columns:1fr 340px;gap:40px;align-items:start}
+.pkg-detail-main{}
+
+/* Tabs */
+.pkg-tabs{display:flex;gap:0;border-bottom:2px solid var(--cream-border);margin-bottom:32px}
+.pkg-tab{
+  padding:12px 22px;font-size:14px;font-weight:500;color:var(--text-muted);
+  background:none;border:none;cursor:pointer;letter-spacing:0.03em;
+  border-bottom:2px solid transparent;margin-bottom:-2px;transition:color 0.2s,border-color 0.2s;
+}
+.pkg-tab.active{color:var(--saffron);border-bottom-color:var(--saffron)}
+.pkg-tab:hover:not(.active){color:var(--text)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* Itinerary */
+.itinerary-day{
+  display:flex;gap:20px;margin-bottom:24px;
+  padding-bottom:24px;border-bottom:1px solid var(--cream-border);
+}
+.itinerary-day:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.itin-day-num{
+  min-width:52px;height:52px;border-radius:50%;
+  background:var(--saffron-pale);color:var(--saffron);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:17px;font-weight:600;flex-shrink:0;
+}
+.itin-day-num small{font-family:var(--fb);font-size:9px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;color:var(--saffron)}
+.itin-day-content h4{font-family:var(--fd);font-size:18px;font-weight:400;color:var(--teal-deep);margin-bottom:6px}
+.itin-day-content p{font-size:14px;color:var(--text-mid);line-height:1.7}
+
+/* Gallery */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gallery-grid img{width:100%;height:160px;object-fit:cover;border-radius:var(--radius);cursor:pointer;transition:opacity 0.2s}
+.gallery-grid img:hover{opacity:0.88}
+
+/* Pricing */
+.pricing-table{width:100%;border-collapse:collapse}
+.pricing-table th{font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);padding:10px 14px;text-align:left;border-bottom:1px solid var(--cream-border)}
+.pricing-table td{padding:14px;font-size:14px;color:var(--text);border-bottom:1px solid var(--cream-border)}
+.pricing-table tr:last-child td{border-bottom:none}
+.pricing-table .price-val{font-family:var(--fd);font-size:20px;color:var(--teal-deep)}
+.incl-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.incl-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text-mid)}
+.incl-list li::before{content:'✓';flex-shrink:0;color:var(--teal);font-weight:600;margin-top:1px}
+.excl-list li::before{content:'✕';color:#C0392B}
+
+/* Inquiry form */
+.inq-form{display:flex;flex-direction:column;gap:12px}
+.inq-form input,.inq-form select,.inq-form textarea{
+  padding:11px 14px;border:1px solid var(--cream-border);border-radius:var(--radius);
+  font-family:var(--fb);font-size:14px;color:var(--text);background:#fff;outline:none;
+  transition:border-color 0.2s;
+}
+.inq-form input:focus,.inq-form select:focus,.inq-form textarea:focus{border-color:var(--teal)}
+.inq-form textarea{resize:vertical;min-height:100px}
+.inq-form .btn-primary{width:100%;padding:13px;letter-spacing:0.07em}
+
+/* Sidebar */
+.pkg-sidebar{}
+.sidebar-card{
+  background:#fff;border:1px solid var(--cream-border);border-radius:4px;
+  padding:24px;margin-bottom:20px;
+  position:sticky;top:94px;
+}
+.sidebar-price{font-family:var(--fd);font-size:36px;font-weight:300;color:var(--teal-deep);margin-bottom:4px}
+.sidebar-price small{font-family:var(--fb);font-size:13px;color:var(--text-muted);font-weight:400}
+.sidebar-nights{font-size:13px;color:var(--text-muted);margin-bottom:20px;padding-bottom:16px;border-bottom:1px solid var(--cream-border)}
+.sidebar-facts{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.sf-row{display:flex;justify-content:space-between;font-size:13px}
+.sf-label{color:var(--text-muted)}
+.sf-val{font-weight:500;color:var(--text)}
+.sidebar-wa{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:12px;margin-top:10px;
+  background:#25D366;color:#fff;border:none;border-radius:var(--radius);
+  font-size:13px;font-weight:500;letter-spacing:0.04em;cursor:pointer;
+  text-decoration:none;
+}
+.sidebar-wa svg{width:18px;height:18px;fill:#fff}
+.sidebar-wa:hover{background:#1da558}
+
+/* ── ABOUT ── */
+#aboutPage{padding-top:74px}
+.about-hero{
+  background:linear-gradient(135deg,var(--teal-deep) 0%,var(--teal) 100%);
+  padding:80px 52px;text-align:center;
+}
+.about-hero h1{font-family:var(--fd);font-size:clamp(36px,5vw,60px);font-weight:300;color:#fff;margin-bottom:16px}
+.about-hero h1 em{font-style:italic;color:var(--saffron-light)}
+.about-hero p{font-size:16px;color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto}
+.about-body{max-width:960px;margin:0 auto;padding:60px 52px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:60px}
+.about-text h2{font-family:var(--fd);font-size:clamp(26px,3vw,38px);font-weight:300;color:var(--teal-deep);margin-bottom:16px;line-height:1.25}
+.about-text h2 em{font-style:italic}
+.about-text p{font-size:15px;color:var(--text-mid);margin-bottom:14px;line-height:1.75}
+.about-img{border-radius:4px;overflow:hidden;height:340px}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.val-card{background:#fff;border:1px solid var(--cream-border);border-radius:4px;padding:28px 22px;text-align:center}
+.val-icon{font-size:28px;margin-bottom:14px}
+.val-card h4{font-family:var(--fd);font-size:18px;color:var(--teal-deep);margin-bottom:8px;font-weight:400}
+.val-card p{font-size:13px;color:var(--text-mid);line-height:1.65}
+
+/* ── CONTACT ── */
+#contactPage{padding-top:74px}
+.contact-hero{
+  background:var(--teal-deep);padding:60px 52px;text-align:center;
+}
+.contact-hero h1{font-family:var(--fd);font-size:clamp(32px,4.5vw,54px);font-weight:300;color:#fff;margin-bottom:10px}
+.contact-hero h1 em{font-style:italic;color:var(--saffron-light)}
+.contact-hero p{color:rgba(255,255,255,0.65);font-size:15px}
+.contact-body{max-width:1060px;margin:0 auto;padding:60px 52px;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+.contact-info h3{font-family:var(--fd);font-size:26px;font-weight:400;color:var(--teal-deep);margin-bottom:24px}
+.cinfo-item{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px}
+.cinfo-icon{
+  width:44px;height:44px;flex-shrink:0;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:18px;
+}
+.cinfo-icon.wa{background:#E8F8EE}
+.cinfo-icon.ph{background:#E8EEF8}
+.cinfo-icon.em{background:var(--saffron-pale)}
+.cinfo-text strong{display:block;font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px}
+.cinfo-text a,.cinfo-text span{font-size:15px;color:var(--teal);text-decoration:none}
+.cinfo-text a:hover{color:var(--saffron)}
+.contact-form-wrap h3{font-family:var(--fd);font-size:26px;font-weight:400;color:var(--teal-deep);margin-bottom:24px}
+.cform{display:flex;flex-direction:column;gap:14px}
+.cform input,.cform select,.cform textarea{
+  padding:12px 14px;border:1px solid var(--cream-border);border-radius:var(--radius);
+  font-family:var(--fb);font-size:14px;color:var(--text);background:#fff;outline:none;
+  transition:border-color 0.2s;
+}
+.cform input:focus,.cform select:focus,.cform textarea:focus{border-color:var(--teal)}
+.cform textarea{resize:vertical;min-height:120px}
+.cform .btn-primary{padding:13px}
+.wa-cta-strip{
+  background:var(--saffron-pale);border-top:1px solid var(--cream-border);
+  padding:48px 52px;text-align:center;
+}
+.wa-cta-strip h3{font-family:var(--fd);font-size:28px;color:var(--teal-deep);margin-bottom:10px;font-weight:300}
+.wa-cta-strip p{color:var(--text-mid);font-size:15px;margin-bottom:24px}
+.wa-big{
+  display:inline-flex;align-items:center;gap:10px;
+  background:#25D366;color:#fff;
+  padding:14px 36px;border-radius:var(--radius);
+  font-size:14px;font-weight:500;letter-spacing:0.05em;
+  text-decoration:none;transition:background 0.2s;
+}
+.wa-big svg{width:20px;height:20px;fill:#fff}
+.wa-big:hover{background:#1da558}
+
+/* ── FOOTER ── */
+footer{
+  background:#0a2e2e;padding:40px 52px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+}
+.footer-logo{font-family:var(--fd);font-size:18px;font-weight:600;color:#fff}
+.footer-logo span{color:var(--saffron-light)}
+.footer-logo small{display:block;font-family:var(--fb);font-size:10px;letter-spacing:0.12em;color:rgba(255,255,255,0.35);margin-top:2px}
+footer p{font-size:12px;color:rgba(255,255,255,0.3)}
+footer a{color:rgba(255,255,255,0.35);font-size:12px;transition:color 0.2s}
+footer a:hover{color:var(--saffron-light)}
+.footer-links{display:flex;gap:20px}
+
+/* ── LIGHTBOX ── */
+#lightbox{
+  display:none;position:fixed;inset:0;z-index:900;
+  background:rgba(0,0,0,0.9);align-items:center;justify-content:center;
+}
+#lightbox.open{display:flex}
+#lightbox img{max-width:92vw;max-height:88vh;border-radius:2px}
+#lbClose{
+  position:absolute;top:20px;right:28px;color:#fff;
+  background:none;border:none;font-size:32px;cursor:pointer;line-height:1;
+}
+
+/* ── TOAST ── */
+.toast{
+  position:fixed;bottom:32px;right:32px;z-index:800;
+  background:var(--teal-deep);color:#fff;
+  padding:14px 24px;border-radius:var(--radius);font-size:14px;
+  transform:translateY(80px);opacity:0;transition:all 0.3s;pointer-events:none;
+  max-width:320px;
+}
+.toast.show{transform:translateY(0);opacity:1}
+
+/* ══════════════════════════════════════════════════════════════
+   ADMIN
+══════════════════════════════════════════════════════════════ */
+#adminLogin{
+  display:none;min-height:100vh;
+  background:var(--teal-deep);
+  align-items:center;justify-content:center;
+}
+#adminLogin.active{display:flex}
+.al-box{
+  background:var(--cream);padding:48px 40px;
+  border-radius:4px;width:100%;max-width:380px;text-align:center;
+}
+.al-box .logo{font-family:var(--fd);font-size:24px;color:var(--teal-deep);margin-bottom:4px}
+.al-box .logo span{color:var(--saffron)}
+.al-box p{font-size:13px;color:var(--text-muted);margin-bottom:28px}
+.al-box input{
+  width:100%;padding:12px 14px;margin-bottom:12px;
+  border:1px solid var(--cream-border);border-radius:var(--radius);
+  font-family:var(--fb);font-size:14px;outline:none;background:#fff;
+}
+.al-box input:focus{border-color:var(--teal)}
+.al-box .btn-primary{width:100%;padding:13px}
+.al-err{color:#B91C1C;font-size:13px;margin-top:10px;display:none}
+.al-hint{
+  margin-top:20px;background:#fff;border:1px solid var(--cream-border);
+  border-radius:var(--radius);padding:12px 14px;text-align:left;font-size:12px;color:var(--text-muted);
+}
+
+/* Admin Dashboard */
+#adminPanel{display:none;min-height:100vh;background:#F7F5F0;font-family:var(--fb)}
+#adminPanel.active{display:block}
+.adm-nav{
+  background:var(--teal-deep);padding:16px 40px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.adm-logo{font-family:var(--fd);font-size:18px;color:#fff;font-weight:600}
+.adm-logo span{color:var(--saffron-light)}
+.adm-badge{background:var(--saffron);color:#fff;font-size:9px;font-weight:500;letter-spacing:0.1em;padding:3px 8px;border-radius:2px;text-transform:uppercase;margin-left:8px}
+.adm-nav-right{display:flex;gap:12px;align-items:center}
+.adm-nav-btn{
+  padding:8px 16px;border-radius:var(--radius);font-size:13px;cursor:pointer;font-family:var(--fb);
+  border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:rgba(255,255,255,0.75);
+  transition:all 0.2s;
+}
+.adm-nav-btn:hover{background:rgba(255,255,255,0.16);color:#fff}
+.adm-body{padding:40px;max-width:1100px;margin:0 auto}
+.adm-topbar{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:32px;flex-wrap:wrap;gap:16px}
+.adm-topbar h1{font-size:22px;font-weight:500;color:var(--text)}
+.adm-topbar p{font-size:13px;color:var(--text-muted);margin-top:3px}
+.btn-adm{
+  padding:10px 22px;border-radius:var(--radius);font-size:13px;font-weight:500;
+  cursor:pointer;border:none;font-family:var(--fb);transition:background 0.2s;letter-spacing:0.03em;
+}
+.btn-adm-teal{background:var(--teal);color:#fff}
+.btn-adm-teal:hover{background:var(--teal-deep)}
+.btn-adm-light{background:#EDEBE6;color:var(--text-mid)}
+.btn-adm-light:hover{background:#E0DDD5}
+.btn-adm-danger{background:#FEF2F2;color:#B91C1C;border:1px solid #FEE2E2}
+.btn-adm-danger:hover{background:#FEE2E2}
+.btn-adm-warn{background:#FFFBEB;color:#92400E;border:1px solid #FDE68A}
+.btn-adm-warn:hover{background:#FEF3C7}
+
+.adm-card{background:#fff;border:1px solid #E8E4DC;border-radius:4px;padding:28px;margin-bottom:28px}
+.adm-card h2{font-size:15px;font-weight:500;color:var(--teal-deep);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #F3F0E9}
+
+/* Form */
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.fg label{font-size:11px;font-weight:500;color:var(--text-mid);letter-spacing:0.06em;text-transform:uppercase}
+.fg input,.fg textarea,.fg select{
+  padding:10px 12px;border:1px solid #E0DCD5;border-radius:var(--radius);
+  background:#FAFAF8;font-family:var(--fb);font-size:14px;color:var(--text);outline:none;transition:border-color 0.2s;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--teal);background:#fff}
+.fg textarea{resize:vertical;min-height:80px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fg-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+
+/* Itinerary builder */
+.itin-builder{border:1px solid #E0DCD5;border-radius:var(--radius);overflow:hidden}
+.itin-builder-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 14px;background:#F8F7F3;border-bottom:1px solid #E0DCD5;
+}
+.itin-builder-head span{font-size:13px;font-weight:500;color:var(--text-mid)}
+.itin-days-list{display:flex;flex-direction:column;gap:0}
+.itin-day-row{border-bottom:1px solid #F0EDE6;padding:12px 14px;background:#fff}
+.itin-day-row:last-child{border-bottom:none}
+.itin-day-row-head{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.itin-day-label{font-size:12px;font-weight:600;color:var(--saffron);min-width:48px}
+.itin-day-title-inp{flex:1;padding:7px 10px;border:1px solid #E0DCD5;border-radius:var(--radius);font-family:var(--fb);font-size:13px;outline:none}
+.itin-day-title-inp:focus{border-color:var(--teal)}
+.itin-day-desc-inp{width:100%;padding:7px 10px;border:1px solid #E0DCD5;border-radius:var(--radius);font-family:var(--fb);font-size:13px;resize:vertical;min-height:56px;outline:none}
+.itin-day-desc-inp:focus{border-color:var(--teal)}
+.itin-day-del{background:none;border:none;color:#C0392B;font-size:18px;cursor:pointer;padding:0 4px;flex-shrink:0}
+
+/* Pricing tiers builder */
+.tier-row{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.tier-row input{flex:1;padding:9px 11px;border:1px solid #E0DCD5;border-radius:var(--radius);font-family:var(--fb);font-size:13px;outline:none}
+.tier-row input:focus{border-color:var(--teal)}
+.tier-del{background:none;border:none;color:#C0392B;font-size:18px;cursor:pointer}
+
+/* Gallery builder */
+.gallery-upload-area{
+  border:2px dashed #D0CCC4;border-radius:var(--radius);
+  padding:32px;text-align:center;cursor:pointer;
+  background:#FAFAF8;transition:border-color 0.2s;
+}
+.gallery-upload-area:hover{border-color:var(--teal)}
+.gallery-upload-area input{display:none}
+.gallery-upload-area p{font-size:14px;color:var(--text-muted);margin-top:8px}
+.gallery-upload-area strong{font-size:13px;color:var(--teal)}
+.gallery-preview{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.gp-item{position:relative;width:100px;height:80px}
+.gp-item img{width:100%;height:100%;object-fit:cover;border-radius:var(--radius)}
+.gp-del{
+  position:absolute;top:3px;right:3px;background:rgba(0,0,0,0.65);
+  color:#fff;border:none;border-radius:50%;width:20px;height:20px;
+  font-size:12px;cursor:pointer;display:flex;align-items:center;justify-content:center;
+}
+.gallery-url-row{display:flex;gap:8px;margin-top:10px}
+.gallery-url-row input{flex:1;padding:9px 11px;border:1px solid #E0DCD5;border-radius:var(--radius);font-family:var(--fb);font-size:13px;outline:none}
+.gallery-url-row input:focus{border-color:var(--teal)}
+.gallery-url-row button{padding:9px 16px;background:var(--teal);color:#fff;border:none;border-radius:var(--radius);font-size:13px;cursor:pointer}
+
+/* Table */
+.adm-table{width:100%;border-collapse:collapse}
+.adm-table th{font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-muted);padding:10px 12px;text-align:left;border-bottom:1px solid #F0EDE6;white-space:nowrap}
+.adm-table td{padding:14px 12px;font-size:14px;color:var(--text);border-bottom:1px solid #F8F6F2;vertical-align:middle}
+.adm-table tr:last-child td{border-bottom:none}
+.adm-table tr:hover td{background:#FAFAF8}
+.tbl-acts{display:flex;gap:6px;flex-wrap:wrap}
+.status-badge{display:inline-block;padding:3px 10px;border-radius:2px;font-size:11px;font-weight:500;letter-spacing:0.05em;text-transform:uppercase}
+.status-active{background:#D1FAE5;color:#065F46}
+.status-draft{background:#F3F4F6;color:#6B7280}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  #mainNav{padding:14px 20px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .hero{padding:120px 24px 80px}
+  .packages-wrap{padding:0 20px 60px}
+  .pkg-detail-body{grid-template-columns:1fr;padding:24px 20px 60px}
+  .pkg-detail-hero-text{padding:24px}
+  .pkg-detail-back{margin:20px 20px 0}
+  .about-body{padding:40px 24px}
+  .about-grid{grid-template-columns:1fr}
+  .about-img{height:240px}
+  .values-grid{grid-template-columns:1fr 1fr}
+  .contact-body{grid-template-columns:1fr;padding:40px 24px}
+  .wa-cta-strip{padding:40px 24px}
+  footer{padding:28px 20px;flex-direction:column;text-align:center}
+  .adm-body{padding:20px}
+  .fg-row,.fg-row3{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .values-grid{grid-template-columns:1fr}
+  .packages-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ NAV -->
+<nav id="mainNav">
+  <div class="nav-logo">
+    Dream <span>Escape</span> Holidays
+    <small>dreamescapeholidays.com</small>
+  </div>
+  <div class="nav-links">
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('home');setTimeout(()=>document.getElementById('packagesSection').scrollIntoView({behavior:'smooth'}),80)">Packages</a>
+    <a onclick="showPage('about')">About Us</a>
+    <a onclick="showPage('contact')">Contact</a>
+    <a onclick="goAdmin()" class="nav-wa">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.124.554 4.118 1.522 5.85L.057 23.7a.75.75 0 00.918.918l5.85-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.959 0-3.794-.5-5.394-1.378l-.386-.217-3.997 1 1-3.997-.217-.386A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Admin
+    </a>
+  </div>
+  <button class="hamburger" onclick="toggleMobMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile menu -->
+<div class="mob-menu" id="mobMenu">
+  <button class="mob-menu-close" onclick="toggleMobMenu()">×</button>
+  <a onclick="showPage('home');toggleMobMenu()">Home</a>
+  <a onclick="showPage('home');setTimeout(()=>document.getElementById('packagesSection').scrollIntoView({behavior:'smooth'}),80);toggleMobMenu()">Packages</a>
+  <a onclick="showPage('about');toggleMobMenu()">About Us</a>
+  <a onclick="showPage('contact');toggleMobMenu()">Contact</a>
+</div>
+
+<!-- ═══════════════════════════════════ HOME PAGE -->
+<div id="homePage" class="page active">
+
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Explore Incredible India</span>
+      <h1>Where Every<br>Journey Becomes<br><em>a Story</em></h1>
+      <p>Handcrafted travel experiences across India's most breathtaking landscapes — from the high passes of Ladakh to the backwaters of Kerala.</p>
+      <div class="hero-btns">
+        <button class="btn-primary" onclick="document.getElementById('packagesSection').scrollIntoView({behavior:'smooth'})">Explore Packages</button>
+        <button class="btn-ghost" onclick="showPage('contact')">Talk to Us</button>
+      </div>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <section id="packagesSection">
+    <div class="sec-head">
+      <p class="sec-eye">Curated Escapes</p>
+      <h2>Choose Your <em>Adventure</em></h2>
+      <p>Each package is thoughtfully designed with detailed itineraries, curated stays, and everything you need for a perfect trip.</p>
+    </div>
+    <div class="packages-wrap">
+      <div class="packages-grid" id="packagesGrid"></div>
+    </div>
+  </section>
+
+  <!-- Why us strip -->
+  <div style="background:var(--cream-dark);padding:60px 52px;border-top:1px solid var(--cream-border);border-bottom:1px solid var(--cream-border)">
+    <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;text-align:center">
+      <div><div style="font-size:28px;margin-bottom:10px">🏔️</div><div style="font-family:var(--fd);font-size:17px;color:var(--teal-deep);margin-bottom:6px">Expert-Led Trips</div><div style="font-size:13px;color:var(--text-muted)">Every route planned by people who've travelled it</div></div>
+      <div><div style="font-size:28px;margin-bottom:10px">🛡️</div><div style="font-family:var(--fd);font-size:17px;color:var(--teal-deep);margin-bottom:6px">Safe & Trusted</div><div style="font-size:13px;color:var(--text-muted)">Registered operator with 100% transparent pricing</div></div>
+      <div><div style="font-size:28px;margin-bottom:10px">📞</div><div style="font-family:var(--fd);font-size:17px;color:var(--teal-deep);margin-bottom:6px">24/7 Support</div><div style="font-size:13px;color:var(--text-muted)">We're with you from first enquiry to safe return</div></div>
+      <div><div style="font-size:28px;margin-bottom:10px">✨</div><div style="font-family:var(--fd);font-size:17px;color:var(--teal-deep);margin-bottom:6px">Small Groups</div><div style="font-size:13px;color:var(--text-muted)">Intimate experiences, never a crowded bus tour</div></div>
+    </div>
+  </div>
+
+</div><!-- /homePage -->
+
+<!-- ═══════════════════════════════════ PACKAGE DETAIL PAGE -->
+<div id="pkgDetailPage" class="page">
+  <div id="pkgDetailContent"></div>
+</div>
+
+<!-- ═══════════════════════════════════ ABOUT PAGE -->
+<div id="aboutPage" class="page">
+  <div class="about-hero">
+    <h1>We Live for <em>Travel</em></h1>
+    <p>Dream Escape Holidays was born from a simple belief — every Indian deserves to experience the extraordinary beauty of their own country and the world beyond.</p>
+  </div>
+  <div class="about-body">
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Our <em>Story</em></h2>
+        <p>Founded by passionate travellers who spent years exploring India's most remote corners, Dream Escape Holidays exists to make those same extraordinary experiences accessible to everyone.</p>
+        <p>From the frozen landscapes of Ladakh to the misty tea gardens of Darjeeling, we design each package with obsessive attention to detail — the right stays, the right routes, the right moments.</p>
+        <p>Based in India, we understand Indian travellers — our budgets, our preferences, our love for authentic local food, and our need for a trustworthy partner on the road.</p>
+      </div>
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Mountain landscape">
+      </div>
+    </div>
+    <div style="background:var(--saffron-pale);border-radius:4px;padding:36px;margin-bottom:48px;text-align:center">
+      <div style="font-family:var(--fd);font-size:clamp(28px,4vw,44px);font-style:italic;color:var(--teal-deep);margin-bottom:8px">"Travel is not just a trip. It's a transformation."</div>
+      <div style="font-size:13px;color:var(--text-muted);letter-spacing:0.06em">— Dream Escape Holidays</div>
+    </div>
+    <div class="values-grid">
+      <div class="val-card"><div class="val-icon">🤝</div><h4>Honest Pricing</h4><p>No hidden costs, no surprise charges. What you see is what you pay.</p></div>
+      <div class="val-card"><div class="val-icon">🌿</div><h4>Responsible Travel</h4><p>We partner with local operators, stay in locally-owned guesthouses, and leave places better than we found them.</p></div>
+      <div class="val-card"><div class="val-icon">❤️</div><h4>Personalised Care</h4><p>Every traveller is different. We listen, we adapt, and we craft your experience around you.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ CONTACT PAGE -->
+<div id="contactPage" class="page">
+  <div class="contact-hero">
+    <h1>Get in <em>Touch</em></h1>
+    <p>We'd love to help you plan your next escape. Reach out on any channel.</p>
+  </div>
+  <div class="contact-body">
+    <div class="contact-info">
+      <h3>Reach Us Directly</h3>
+      <div class="cinfo-item">
+        <div class="cinfo-icon wa">💬</div>
+        <div class="cinfo-text">
+          <strong>WhatsApp</strong>
+          <a id="waLink1" href="#">Click to chat on WhatsApp</a>
+        </div>
+      </div>
+      <div class="cinfo-item">
+        <div class="cinfo-icon ph">📞</div>
+        <div class="cinfo-text">
+          <strong>Phone</strong>
+          <a id="phoneLink1" href="#">—</a>
+        </div>
+      </div>
+      <div class="cinfo-item">
+        <div class="cinfo-icon em">✉️</div>
+        <div class="cinfo-text">
+          <strong>Email</strong>
+          <a href="mailto:sales@dreamescapeholidays.com">sales@dreamescapeholidays.com</a>
+        </div>
+      </div>
+      <div style="margin-top:32px;padding:20px;background:var(--saffron-pale);border-radius:var(--radius)">
+        <div style="font-family:var(--fd);font-size:17px;color:var(--teal-deep);margin-bottom:6px">Office Hours</div>
+        <div style="font-size:14px;color:var(--text-mid)">Mon – Sat: 9:00 AM – 7:00 PM IST<br>Sunday: 10:00 AM – 4:00 PM IST</div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <h3>Send an Enquiry</h3>
+      <form class="cform" onsubmit="submitContact(event)">
+        <input type="text" placeholder="Your name" required>
+        <input type="tel" placeholder="Your phone / WhatsApp number" required>
+        <input type="email" placeholder="Email address (optional)">
+        <select>
+          <option value="">Interested in which package?</option>
+          <option>Ladakh Expedition</option>
+          <option>Other / Not sure yet</option>
+        </select>
+        <input type="text" placeholder="Preferred travel dates">
+        <input type="number" placeholder="Number of travellers" min="1">
+        <textarea placeholder="Tell us more about what you're looking for…"></textarea>
+        <button type="submit" class="btn-primary">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+  <div class="wa-cta-strip">
+    <h3>Prefer to chat instantly?</h3>
+    <p>Our travel experts are available on WhatsApp for quick answers and personalised recommendations.</p>
+    <a id="waBigBtn" href="#" class="wa-big">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.124.554 4.118 1.522 5.85L.057 23.7a.75.75 0 00.918.918l5.85-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.959 0-3.794-.5-5.394-1.378l-.386-.217-3.997 1 1-3.997-.217-.386A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Chat on WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER (shared) -->
+<footer id="siteFooter">
+  <div>
+    <div class="footer-logo">Dream <span>Escape</span> Holidays<small>dreamescapeholidays.com</small></div>
+  </div>
+  <p>© 2025 Dream Escape Holidays. All rights reserved.</p>
+  <div class="footer-links">
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('contact')">Contact</a>
+    <a onclick="goAdmin()" style="cursor:pointer">Admin</a>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div id="lightbox"><button id="lbClose" onclick="closeLightbox()">×</button><img id="lbImg" src="" alt=""></div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ═══════════════════════════════════ ADMIN LOGIN -->
+<div id="adminLogin">
+  <div class="al-box">
+    <div class="logo">Dream <span>Escape</span></div>
+    <p>Admin Panel — Manage your packages</p>
+    <input type="text" id="alUser" placeholder="Username">
+    <input type="password" id="alPass" placeholder="Password" onkeydown="if(event.key==='Enter')doLogin()">
+    <button class="btn-primary" onclick="doLogin()">Sign In</button>
+    <div class="al-err" id="alErr">Incorrect credentials. Please try again.</div>
+    <div class="al-hint">Default: <strong>admin</strong> / <strong>dreamscape2025</strong><br>Change this before going live.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ ADMIN PANEL -->
+<div id="adminPanel">
+  <div class="adm-nav">
+    <div style="display:flex;align-items:center">
+      <span class="adm-logo">Dream <span>Escape</span></span>
+      <span class="adm-badge">Admin</span>
+    </div>
+    <div class="adm-nav-right">
+      <button class="adm-nav-btn" onclick="showAdmSettings()">⚙ Settings</button>
+      <button class="adm-nav-btn" onclick="exitAdmin()">← Back to Website</button>
+    </div>
+  </div>
+  <div class="adm-body">
+    <!-- Dashboard -->
+    <div id="admDashboard">
+      <div class="adm-topbar">
+        <div><h1>Package Manager</h1><p>Add, edit, and manage all your holiday packages.</p></div>
+        <button class="btn-adm btn-adm-teal" onclick="showPkgForm(null)">+ Add New Package</button>
+      </div>
+      <!-- Settings quick edit -->
+      <div class="adm-card" id="admSettingsCard" style="display:none">
+        <h2>Site Settings</h2>
+        <div class="fg-row">
+          <div class="fg"><label>WhatsApp Number (with country code)</label><input type="text" id="settWa" placeholder="+91 98765 43210"></div>
+          <div class="fg"><label>Phone Number</label><input type="text" id="settPhone" placeholder="+91 98765 43210"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:4px">
+          <button class="btn-adm btn-adm-teal" onclick="saveSettings()">Save Settings</button>
+          <button class="btn-adm btn-adm-light" onclick="document.getElementById('admSettingsCard').style.display='none'">Close</button>
+        </div>
+      </div>
+      <div class="adm-card">
+        <h2>All Packages (<span id="admPkgCount">0</span>)</h2>
+        <div style="overflow-x:auto">
+          <table class="adm-table">
+            <thead><tr>
+              <th>Name</th><th>Category</th><th>Price (From)</th><th>Duration</th><th>Status</th><th>Actions</th>
+            </tr></thead>
+            <tbody id="admTableBody"></tbody>
+          </table>
+        </div>
+        <p id="admNoMsg" style="text-align:center;padding:28px 0;color:var(--text-muted);font-size:14px;display:none">No packages yet. Add your first package above.</p>
+      </div>
+    </div>
+    <!-- Package Form -->
+    <div id="admPkgForm" style="display:none">
+      <div class="adm-topbar">
+        <div><h1 id="admFormTitle">Add New Package</h1><p>Fill in all details for this holiday package.</p></div>
+        <button class="btn-adm btn-adm-light" onclick="cancelPkgForm()">← Back</button>
+      </div>
+      <div class="adm-card">
+        <h2>Basic Info</h2>
+        <div class="fg-row">
+          <div class="fg"><label>Package Name *</label><input id="fName" type="text" placeholder="e.g. Ladakh Winter Expedition"></div>
+          <div class="fg"><label>Category / Tag</label><input id="fTag" type="text" placeholder="e.g. Adventure · Ladakh"></div>
+        </div>
+        <div class="fg-row3">
+          <div class="fg"><label>Duration</label><input id="fDuration" type="text" placeholder="e.g. 8 Nights / 9 Days"></div>
+          <div class="fg"><label>Best Season</label><input id="fSeason" type="text" placeholder="e.g. June – September"></div>
+          <div class="fg"><label>Group Size</label><input id="fGroup" type="text" placeholder="e.g. 6–12 people"></div>
+        </div>
+        <div class="fg"><label>Short Description</label><textarea id="fDesc" placeholder="2–3 lines describing this experience…"></textarea></div>
+        <div class="fg"><label>Status</label>
+          <select id="fStatus">
+            <option value="active">Active – Visible on website</option>
+            <option value="draft">Draft – Hidden from website</option>
+          </select>
+        </div>
+      </div>
+      <div class="adm-card">
+        <h2>Pricing Tiers</h2>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">Add different pricing options (e.g. Shared / Double / Triple). First tier price shows on card.</p>
+        <div id="tiersList"></div>
+        <button class="btn-adm btn-adm-light" style="margin-top:4px" onclick="addTierRow()">+ Add Tier</button>
+      </div>
+      <div class="adm-card">
+        <h2>What's Included / Excluded</h2>
+        <div class="fg-row">
+          <div class="fg"><label>Included (one per line)</label><textarea id="fIncluded" placeholder="Accommodation&#10;Breakfast & Dinner&#10;Local transport&#10;Expert guide"></textarea></div>
+          <div class="fg"><label>Excluded (one per line)</label><textarea id="fExcluded" placeholder="Airfare&#10;Personal expenses&#10;Travel insurance"></textarea></div>
+        </div>
+      </div>
+      <div class="adm-card">
+        <h2>Day-by-Day Itinerary</h2>
+        <div class="itin-builder">
+          <div class="itin-builder-head">
+            <span>Itinerary Days</span>
+            <button class="btn-adm btn-adm-teal" style="padding:6px 14px;font-size:12px" onclick="addItinDay()">+ Add Day</button>
+          </div>
+          <div id="itinDaysList"></div>
+        </div>
+      </div>
+      <div class="adm-card">
+        <h2>Package Gallery</h2>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px">Upload images or paste image URLs. First image is used as the card cover.</p>
+        <!-- Upload -->
+        <div class="gallery-upload-area" onclick="document.getElementById('imgFileInput').click()">
+          <input type="file" id="imgFileInput" accept="image/*" multiple onchange="handleImageUpload(event)">
+          <div style="font-size:32px">🖼️</div>
+          <strong>Click to upload images</strong>
+          <p>JPG, PNG, WEBP — Max 5MB each</p>
+        </div>
+        <!-- URL add -->
+        <div class="gallery-url-row">
+          <input type="url" id="imgUrlInput" placeholder="Or paste an image URL and press Add">
+          <button onclick="addImageUrl()">Add URL</button>
+        </div>
+        <div class="gallery-preview" id="galleryPreview"></div>
+      </div>
+      <div style="display:flex;gap:12px;margin-bottom:40px">
+        <button class="btn-adm btn-adm-teal" style="padding:12px 32px;font-size:14px" onclick="savePkg()">Save Package</button>
+        <button class="btn-adm btn-adm-light" onclick="cancelPkgForm()">Cancel</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ──────────────────────────────────────────
+// DATA LAYER
+// ──────────────────────────────────────────
+const SK = 'deh_packages_v2';
+const SK_SET = 'deh_settings';
+const ADMIN = {u:'admin',p:'dreamscape2025'};
+
+function getSettings(){
+  return JSON.parse(localStorage.getItem(SK_SET)||'{}');
+}
+function saveSettingsData(s){
+  localStorage.setItem(SK_SET,JSON.stringify(s));
+  applySettings();
+}
+function applySettings(){
+  const s=getSettings();
+  const wa=s.wa||'';
+  const ph=s.phone||'';
+  const waUrl=wa?`https://wa.me/${wa.replace(/\D/g,'')}`:'#';
+  document.querySelectorAll('[id^=waLink]').forEach(el=>{
+    el.href=waUrl;
+    el.textContent=wa||'Not set';
+  });
+  document.querySelectorAll('[id^=phoneLink]').forEach(el=>{
+    el.href=ph?`tel:${ph}`:'#';
+    el.textContent=ph||'Not set';
+  });
+  const waB=document.getElementById('waBigBtn');
+  if(waB) waB.href=waUrl;
+  // update nav WA
+  const nw=document.querySelector('.nav-wa');
+  if(nw) nw.onclick=()=>window.open(waUrl,'_blank');
+}
+
+function loadPkgs(){
+  const d=localStorage.getItem(SK);
+  if(!d){localStorage.setItem(SK,JSON.stringify(SEED));return JSON.parse(JSON.stringify(SEED));}
+  return JSON.parse(d);
+}
+function savePkgsData(arr){localStorage.setItem(SK,JSON.stringify(arr));}
+
+const SEED=[{
+  id:'pkg_1',
+  name:'Ladakh — The Roof of the World',
+  tag:'Adventure · Ladakh',
+  duration:'8 Nights / 9 Days',
+  season:'June – September',
+  group:'6–12 people',
+  desc:'Experience the raw, breathtaking beauty of Ladakh — high-altitude deserts, turquoise lakes, ancient monasteries, and star-filled skies unlike anywhere on Earth.',
+  tiers:[
+    {label:'Triple Sharing',price:'24500'},
+    {label:'Double Sharing',price:'27000'},
+    {label:'Single Room',price:'32000'},
+  ],
+  included:'Accommodation in guesthouses & camps\nBreakfast and dinner daily\nAll transfers in comfortable SUVs\nExperienced local guide\nInner Line Permit & entry fees\nOxygen cylinders for emergencies',
+  excluded:'Airfare to Leh\nLunch\nPersonal expenses & tips\nTravel insurance\nAny activity not in itinerary',
+  itinerary:[
+    {title:'Arrival in Leh — Acclimatisation',desc:'Arrive in Leh (3500m). Rest and acclimatise. Evening walk around the local market. Welcome briefing over dinner.'},
+    {title:'Leh Local Sightseeing',desc:'Visit Shanti Stupa, Leh Palace, and the vibrant Leh Market. Easy acclimatisation hike in the evening.'},
+    {title:'Leh to Nubra Valley via Khardung La',desc:'Cross Khardung La (5359m), the world\'s highest motorable pass. Arrive Nubra Valley, camel safari on the double-humped Bactrian camels.'},
+    {title:'Nubra Valley — Diskit & Hunder',desc:'Visit Diskit Monastery and the giant Maitreya Buddha statue. Explore sand dunes at Hunder village.'},
+    {title:'Nubra to Pangong Lake',desc:'Drive through Shyok Valley to the iconic Pangong Tso lake (4350m). Watch the lake change colours — blue, turquoise, green.'},
+    {title:'Pangong Lake — Free Day',desc:'Sunrise at the lake shore. Optional hike along the lakeside. Photography session at the famous "3 Idiots" viewpoint.'},
+    {title:'Pangong to Leh via Chang La',desc:'Return to Leh crossing Chang La Pass (5360m). Visit Hemis Monastery en route.'},
+    {title:'Magnetic Hill & Indus Valley',desc:'Visit Magnetic Hill, Gurudwara Pathar Sahib, Sangam (confluence of Indus & Zanskar). Evening in Leh free.'},
+    {title:'Departure',desc:'Transfer to Leh airport for your onward journey. Carry the memories of a lifetime.'},
+  ],
+  gallery:[
+    'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=75',
+    'https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=800&q=75',
+    'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=75',
+    'https://images.unsplash.com/photo-1573921470445-8d99e4bd4d08?w=800&q=75',
+    'https://images.unsplash.com/photo-1583396958988-3fb8c3c8b779?w=800&q=75',
+    'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=75',
+  ],
+  status:'active'
+}];
+
+// ──────────────────────────────────────────
+// PAGE ROUTING
+// ──────────────────────────────────────────
+let currentPage='home';
+function showPage(name){
+  ['home','pkgDetail','about','contact'].forEach(p=>{
+    const el=document.getElementById(p+'Page');
+    if(el) el.classList.toggle('active',p===name);
+  });
+  // hide admin
+  document.getElementById('adminLogin').classList.remove('active');
+  document.getElementById('adminPanel').classList.remove('active');
+  // show site chrome
+  document.getElementById('mainNav').style.display='flex';
+  document.getElementById('siteFooter').style.display='flex';
+  currentPage=name;
+  window.scrollTo({top:0,behavior:'smooth'});
+  // update nav active
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+}
+
+function goAdmin(){
+  // hide all pages & footer
+  ['home','pkgDetail','about','contact'].forEach(p=>{
+    const el=document.getElementById(p+'Page');
+    if(el) el.classList.remove('active');
+  });
+  document.getElementById('mainNav').style.display='none';
+  document.getElementById('siteFooter').style.display='none';
+  document.getElementById('adminLogin').classList.add('active');
+  document.getElementById('adminPanel').classList.remove('active');
+}
+function exitAdmin(){
+  document.getElementById('adminPanel').classList.remove('active');
+  document.getElementById('adminLogin').classList.remove('active');
+  showPage('home');
+  renderPackages();
+}
+
+function toggleMobMenu(){
+  document.getElementById('mobMenu').classList.toggle('open');
+}
+
+// Scroll shrink nav
+window.addEventListener('scroll',()=>{
+  document.getElementById('mainNav').classList.toggle('scrolled',window.scrollY>60);
+});
+
+// ──────────────────────────────────────────
+// RENDER CUSTOMER CARDS
+// ──────────────────────────────────────────
+function renderPackages(){
+  const grid=document.getElementById('packagesGrid');
+  const pkgs=loadPkgs().filter(p=>p.status==='active');
+  if(!pkgs.length){grid.innerHTML='<p class="no-pkg">No packages available right now. Check back soon!</p>';return;}
+  grid.innerHTML=pkgs.map(p=>{
+    const coverImg=p.gallery&&p.gallery[0]?p.gallery[0]:'';
+    const fromPrice=p.tiers&&p.tiers[0]?Number(p.tiers[0].price).toLocaleString('en-IN'):'—';
+    return `<div class="pkg-card" onclick="openPkgDetail('${p.id}')">
+      <div class="pkg-card-img">
+        ${coverImg?`<img src="${coverImg}" alt="${p.name}" loading="lazy">`:'<div style="width:100%;height:100%;background:linear-gradient(135deg,var(--teal-deep),var(--teal))"></div>'}
+        <span class="pkg-card-badge">${p.tag.split('·')[0].trim()}</span>
+        <span class="pkg-card-nights">${p.duration||''}</span>
+      </div>
+      <div class="pkg-card-body">
+        <h3>${p.name}</h3>
+        <p>${p.desc||''}</p>
+        <div class="pkg-card-foot">
+          <div><div class="pkg-price">₹${fromPrice}<small> / person onwards</small></div></div>
+          <button class="btn-view" onclick="event.stopPropagation();openPkgDetail('${p.id}')">View Details</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ──────────────────────────────────────────
+// PACKAGE DETAIL
+// ──────────────────────────────────────────
+function openPkgDetail(id){
+  const p=loadPkgs().find(x=>x.id===id);
+  if(!p) return;
+  const s=getSettings();
+  const waNum=s.wa?s.wa.replace(/\D/g,''):'';
+  const waUrl=waNum?`https://wa.me/${waNum}?text=Hi!%20I'm%20interested%20in%20the%20${encodeURIComponent(p.name)}%20package.`:'#';
+
+  const heroImg=p.gallery&&p.gallery[0]?p.gallery[0]:'https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=1600&q=75';
+
+  // Itinerary HTML
+  const itinHtml=p.itinerary&&p.itinerary.length
+    ? p.itinerary.map((d,i)=>`
+      <div class="itinerary-day">
+        <div class="itin-day-num">${i+1}<small>DAY</small></div>
+        <div class="itin-day-content">
+          <h4>${d.title}</h4>
+          <p>${d.desc}</p>
+        </div>
+      </div>`).join('')
+    : '<p style="color:var(--text-muted);font-size:14px">Itinerary coming soon.</p>';
+
+  // Gallery HTML
+  const galHtml=p.gallery&&p.gallery.length
+    ? `<div class="gallery-grid">${p.gallery.map(img=>`<img src="${img}" alt="Gallery" loading="lazy" onclick="openLightbox('${img}')">`).join('')}</div>`
+    : '<p style="color:var(--text-muted);font-size:14px">Gallery coming soon.</p>';
+
+  // Pricing HTML
+  const tierRows=p.tiers&&p.tiers.length
+    ? p.tiers.map(t=>`<tr><td>${t.label}</td><td class="price-val">₹${Number(t.price).toLocaleString('en-IN')}</td><td style="font-size:13px;color:var(--text-muted)">Per person</td></tr>`).join('')
+    : '<tr><td colspan="3" style="color:var(--text-muted)">Pricing details coming soon.</td></tr>';
+  const inclArr=(p.included||'').split('\n').filter(x=>x.trim());
+  const exclArr=(p.excluded||'').split('\n').filter(x=>x.trim());
+
+  // Facts sidebar
+  const fromPrice=p.tiers&&p.tiers[0]?Number(p.tiers[0].price).toLocaleString('en-IN'):'—';
+
+  document.getElementById('pkgDetailContent').innerHTML=`
+    <div onclick="showPage('home');renderPackages()" class="pkg-detail-back">
+      <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+      Back to all packages
+    </div>
+    <div class="pkg-detail-hero">
+      <img src="${heroImg}" alt="${p.name}">
+      <div class="pkg-detail-hero-text">
+        <span class="badge">${p.tag}</span>
+        <h1>${p.name}</h1>
+      </div>
+    </div>
+    <div class="pkg-detail-body">
+      <div class="pkg-detail-main">
+        <div class="pkg-tabs">
+          <button class="pkg-tab active" onclick="switchTab(this,'tab-itin')">Itinerary</button>
+          <button class="pkg-tab" onclick="switchTab(this,'tab-gallery')">Gallery</button>
+          <button class="pkg-tab" onclick="switchTab(this,'tab-pricing')">Pricing</button>
+          <button class="pkg-tab" onclick="switchTab(this,'tab-inquiry')">Enquire</button>
+        </div>
+        <div id="tab-itin" class="tab-panel active">${itinHtml}</div>
+        <div id="tab-gallery" class="tab-panel">${galHtml}</div>
+        <div id="tab-pricing" class="tab-panel">
+          <table class="pricing-table">
+            <thead><tr><th>Type</th><th>Price</th><th>Note</th></tr></thead>
+            <tbody>${tierRows}</tbody>
+          </table>
+          ${inclArr.length?`<h4 style="font-family:var(--fd);font-size:18px;margin-top:28px;margin-bottom:14px;color:var(--teal-deep)">What's Included</h4><ul class="incl-list">${inclArr.map(i=>`<li>${i}</li>`).join('')}</ul>`:''}
+          ${exclArr.length?`<h4 style="font-family:var(--fd);font-size:18px;margin-top:24px;margin-bottom:14px;color:var(--teal-deep)">Not Included</h4><ul class="incl-list excl-list">${exclArr.map(i=>`<li>${i}</li>`).join('')}</ul>`:''}
+        </div>
+        <div id="tab-inquiry" class="tab-panel">
+          <h4 style="font-family:var(--fd);font-size:22px;color:var(--teal-deep);margin-bottom:6px;font-weight:400">Book or Enquire</h4>
+          <p style="font-size:14px;color:var(--text-muted);margin-bottom:20px">Fill in your details and we'll get back to you within a few hours.</p>
+          <form class="inq-form" onsubmit="submitInquiry(event,'${p.name}')">
+            <input type="text" placeholder="Your full name" required>
+            <input type="tel" placeholder="Phone / WhatsApp number" required>
+            <input type="email" placeholder="Email address">
+            <input type="text" placeholder="Travel dates (e.g. 15 June – 23 June)">
+            <input type="number" placeholder="Number of travellers" min="1">
+            <select><option>Select room preference</option>${(p.tiers||[]).map(t=>`<option>${t.label} — ₹${Number(t.price).toLocaleString('en-IN')}/person</option>`).join('')}</select>
+            <textarea placeholder="Any special requirements or questions?"></textarea>
+            <button type="submit" class="btn-primary">Send Enquiry</button>
+            <a href="${waUrl}" target="_blank" class="sidebar-wa">
+              <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.124.554 4.118 1.522 5.85L.057 23.7a.75.75 0 00.918.918l5.85-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.959 0-3.794-.5-5.394-1.378l-.386-.217-3.997 1 1-3.997-.217-.386A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+              Or WhatsApp Us Directly
+            </a>
+          </form>
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div class="pkg-sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-price">₹${fromPrice}<small> / person</small></div>
+          <div class="sidebar-nights">${p.duration}${p.season?' · '+p.season:''}</div>
+          <div class="sidebar-facts">
+            ${p.duration?`<div class="sf-row"><span class="sf-label">Duration</span><span class="sf-val">${p.duration}</span></div>`:''}
+            ${p.group?`<div class="sf-row"><span class="sf-label">Group Size</span><span class="sf-val">${p.group}</span></div>`:''}
+            ${p.season?`<div class="sf-row"><span class="sf-label">Best Season</span><span class="sf-val">${p.season}</span></div>`:''}
+          </div>
+          <button class="btn-primary" style="width:100%;padding:12px" onclick="switchTabByName('tab-inquiry')">Enquire Now</button>
+          <a href="${waUrl}" target="_blank" class="sidebar-wa">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.124.554 4.118 1.522 5.85L.057 23.7a.75.75 0 00.918.918l5.85-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.959 0-3.794-.5-5.394-1.378l-.386-.217-3.997 1 1-3.997-.217-.386A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            Chat on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  showPage('pkgDetail');
+}
+
+function switchTab(btn,panelId){
+  btn.closest('.pkg-tabs').querySelectorAll('.pkg-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  const wrap=btn.closest('.pkg-detail-main');
+  wrap.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById(panelId).classList.add('active');
+}
+function switchTabByName(panelId){
+  const panel=document.getElementById(panelId);
+  if(!panel) return;
+  const tabs=panel.closest('.pkg-detail-main').querySelectorAll('.pkg-tab');
+  tabs.forEach(t=>t.classList.remove('active'));
+  panel.closest('.pkg-detail-main').querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  panel.classList.add('active');
+  const idx=['tab-itin','tab-gallery','tab-pricing','tab-inquiry'].indexOf(panelId);
+  if(tabs[idx]) tabs[idx].classList.add('active');
+  panel.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function submitInquiry(e,name){
+  e.preventDefault();
+  showToast('Enquiry received! We\'ll contact you shortly. 🙏');
+  e.target.reset();
+}
+function submitContact(e){
+  e.preventDefault();
+  showToast('Thank you! We\'ll get back to you within a few hours.');
+  e.target.reset();
+}
+
+// Lightbox
+function openLightbox(src){
+  document.getElementById('lbImg').src=src;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}
+document.getElementById('lightbox').addEventListener('click',e=>{if(e.target===e.currentTarget)closeLightbox()});
+
+// ──────────────────────────────────────────
+// ADMIN
+// ──────────────────────────────────────────
+function doLogin(){
+  const u=document.getElementById('alUser').value.trim();
+  const p=document.getElementById('alPass').value;
+  if(u===ADMIN.u && p===ADMIN.p){
+    document.getElementById('adminLogin').classList.remove('active');
+    document.getElementById('adminPanel').classList.add('active');
+    renderAdmTable();
+    loadSettingsForm();
+  } else {
+    document.getElementById('alErr').style.display='block';
+  }
+}
+
+function loadSettingsForm(){
+  const s=getSettings();
+  document.getElementById('settWa').value=s.wa||'';
+  document.getElementById('settPhone').value=s.phone||'';
+}
+function saveSettings(){
+  saveSettingsData({wa:document.getElementById('settWa').value.trim(),phone:document.getElementById('settPhone').value.trim()});
+  showToast('Settings saved!');
+  document.getElementById('admSettingsCard').style.display='none';
+}
+function showAdmSettings(){
+  const c=document.getElementById('admSettingsCard');
+  c.style.display=c.style.display==='none'?'block':'none';
+}
+
+function renderAdmTable(){
+  const pkgs=loadPkgs();
+  document.getElementById('admPkgCount').textContent=pkgs.length;
+  const msg=document.getElementById('admNoMsg');
+  const tbody=document.getElementById('admTableBody');
+  if(!pkgs.length){tbody.innerHTML='';msg.style.display='block';return;}
+  msg.style.display='none';
+  tbody.innerHTML=pkgs.map(p=>{
+    const price=p.tiers&&p.tiers[0]?'₹'+Number(p.tiers[0].price).toLocaleString('en-IN'):'—';
+    return `<tr>
+      <td style="font-weight:500">${p.name}</td>
+      <td>${p.tag||''}</td>
+      <td style="font-family:var(--fd);font-size:17px">${price}</td>
+      <td>${p.duration||''}</td>
+      <td><span class="status-badge ${p.status==='active'?'status-active':'status-draft'}">${p.status}</span></td>
+      <td><div class="tbl-acts">
+        <button class="btn-adm btn-adm-warn" onclick="showPkgForm('${p.id}')">Edit</button>
+        <button class="btn-adm btn-adm-danger" onclick="deletePkg('${p.id}')">Delete</button>
+      </div></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── PKG FORM ──
+let editingId=null;
+let formGallery=[];
+let formTiers=[];
+let formItinDays=[];
+
+function showPkgForm(id){
+  editingId=id;
+  formGallery=[];formTiers=[];formItinDays=[];
+  document.getElementById('admDashboard').style.display='none';
+  document.getElementById('admPkgForm').style.display='block';
+  document.getElementById('galleryPreview').innerHTML='';
+  document.getElementById('itinDaysList').innerHTML='';
+  document.getElementById('tiersList').innerHTML='';
+
+  if(id){
+    const p=loadPkgs().find(x=>x.id===id);
+    document.getElementById('admFormTitle').textContent='Edit Package';
+    document.getElementById('fName').value=p.name||'';
+    document.getElementById('fTag').value=p.tag||'';
+    document.getElementById('fDuration').value=p.duration||'';
+    document.getElementById('fSeason').value=p.season||'';
+    document.getElementById('fGroup').value=p.group||'';
+    document.getElementById('fDesc').value=p.desc||'';
+    document.getElementById('fIncluded').value=p.included||'';
+    document.getElementById('fExcluded').value=p.excluded||'';
+    document.getElementById('fStatus').value=p.status||'active';
+    formGallery=p.gallery?[...p.gallery]:[];
+    formTiers=p.tiers?JSON.parse(JSON.stringify(p.tiers)):[];
+    formItinDays=p.itinerary?JSON.parse(JSON.stringify(p.itinerary)):[];
+  } else {
+    document.getElementById('admFormTitle').textContent='Add New Package';
+    ['fName','fTag','fDuration','fSeason','fGroup','fDesc','fIncluded','fExcluded'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('fStatus').value='active';
+    formTiers=[{label:'',price:''}];
+    formItinDays=[{title:'',desc:''}];
+  }
+  renderTiers();renderItinDays();renderGalleryPreview();
+  window.scrollTo({top:0});
+}
+function cancelPkgForm(){
+  document.getElementById('admDashboard').style.display='block';
+  document.getElementById('admPkgForm').style.display='none';
+  editingId=null;
+}
+
+// Tiers
+function renderTiers(){
+  document.getElementById('tiersList').innerHTML=formTiers.map((t,i)=>`
+    <div class="tier-row">
+      <input type="text" placeholder="Type (e.g. Double Sharing)" value="${t.label}" oninput="formTiers[${i}].label=this.value">
+      <input type="number" placeholder="Price (₹)" value="${t.price}" oninput="formTiers[${i}].price=this.value" style="max-width:150px">
+      <button class="tier-del" onclick="formTiers.splice(${i},1);renderTiers()">×</button>
+    </div>`).join('');
+}
+function addTierRow(){formTiers.push({label:'',price:''});renderTiers();}
+
+// Itinerary
+function renderItinDays(){
+  document.getElementById('itinDaysList').innerHTML=formItinDays.map((d,i)=>`
+    <div class="itin-day-row">
+      <div class="itin-day-row-head">
+        <span class="itin-day-label">Day ${i+1}</span>
+        <input class="itin-day-title-inp" type="text" placeholder="Day title" value="${d.title||''}" oninput="formItinDays[${i}].title=this.value">
+        <button class="itin-day-del" onclick="formItinDays.splice(${i},1);renderItinDays()">×</button>
+      </div>
+      <textarea class="itin-day-desc-inp" placeholder="Describe the day's activities…" oninput="formItinDays[${i}].desc=this.value">${d.desc||''}</textarea>
+    </div>`).join('');
+}
+function addItinDay(){formItinDays.push({title:'',desc:''});renderItinDays();}
+
+// Gallery
+function renderGalleryPreview(){
+  document.getElementById('galleryPreview').innerHTML=formGallery.map((img,i)=>`
+    <div class="gp-item">
+      <img src="${img}" alt="">
+      <button class="gp-del" onclick="formGallery.splice(${i},1);renderGalleryPreview()">×</button>
+    </div>`).join('');
+}
+function addImageUrl(){
+  const inp=document.getElementById('imgUrlInput');
+  const url=inp.value.trim();
+  if(!url) return;
+  formGallery.push(url);
+  renderGalleryPreview();
+  inp.value='';
+}
+function handleImageUpload(e){
+  const files=Array.from(e.target.files);
+  files.forEach(file=>{
+    if(file.size>5*1024*1024){showToast('File too large (max 5MB).');return;}
+    const reader=new FileReader();
+    reader.onload=ev=>{formGallery.push(ev.target.result);renderGalleryPreview();};
+    reader.readAsDataURL(file);
+  });
+  e.target.value='';
+}
+
+// Save
+function savePkg(){
+  const name=document.getElementById('fName').value.trim();
+  if(!name){showToast('Package name is required.');return;}
+  const pkgs=loadPkgs();
+  const pkg={
+    id: editingId||'pkg_'+Date.now(),
+    name,
+    tag:document.getElementById('fTag').value.trim(),
+    duration:document.getElementById('fDuration').value.trim(),
+    season:document.getElementById('fSeason').value.trim(),
+    group:document.getElementById('fGroup').value.trim(),
+    desc:document.getElementById('fDesc').value.trim(),
+    included:document.getElementById('fIncluded').value.trim(),
+    excluded:document.getElementById('fExcluded').value.trim(),
+    status:document.getElementById('fStatus').value,
+    tiers:[...formTiers],
+    itinerary:[...formItinDays],
+    gallery:[...formGallery],
+  };
+  if(editingId){const i=pkgs.findIndex(x=>x.id===editingId);pkgs[i]=pkg;showToast('Package updated.');}
+  else{pkgs.push(pkg);showToast('Package added.');}
+  savePkgsData(pkgs);
+  cancelPkgForm();
+  renderAdmTable();
+}
+function deletePkg(id){
+  if(!confirm('Delete this package? This cannot be undone.')) return;
+  savePkgsData(loadPkgs().filter(p=>p.id!==id));
+  renderAdmTable();
+  showToast('Package deleted.');
+}
+
+// ──────────────────────────────────────────
+// TOAST
+// ──────────────────────────────────────────
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3800);
+}
+
+// ──────────────────────────────────────────
+// INIT
+// ──────────────────────────────────────────
+renderPackages();
+applySettings();
+</script>
+</body>
+</html>
