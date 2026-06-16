@@ -49,6 +49,10 @@ button{font-family:var(--fb)}
 }
 .nav-logo img{
   height:52px;width:auto;object-fit:contain;
+  border-radius:50%;
+  background:#fff;
+  padding:2px;
+  box-shadow:0 1px 6px rgba(0,0,0,0.1);
 }
 .nav-logo-text{
   font-family:var(--fd);font-size:18px;font-weight:600;letter-spacing:0.02em;
@@ -350,7 +354,7 @@ footer{
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
 }
 .footer-logo{display:flex;align-items:center;gap:10px}
-.footer-logo img{height:40px;width:auto;filter:brightness(0) invert(1);opacity:0.85}
+.footer-logo img{height:44px;width:auto;border-radius:50%;background:#fff;padding:2px;}
 .footer-logo-text{font-family:var(--fd);font-size:16px;font-weight:600;color:#fff}
 .footer-logo-text span{color:var(--saffron-light)}
 .footer-logo-text small{display:block;font-family:var(--fb);font-size:9px;letter-spacing:0.12em;color:rgba(255,255,255,0.35);margin-top:2px}
@@ -394,7 +398,7 @@ footer a:hover{color:var(--saffron-light)}
 #adminPanel.active{display:block}
 .adm-nav{background:var(--teal-deep);padding:16px 40px;display:flex;align-items:center;justify-content:space-between}
 .adm-logo{display:flex;align-items:center;gap:10px}
-.adm-logo img{height:36px;width:auto;filter:brightness(0) invert(1);opacity:0.9}
+.adm-logo img{height:36px;width:auto;border-radius:50%;background:#fff;padding:2px;}
 .adm-logo-text{font-family:var(--fd);font-size:18px;color:#fff;font-weight:600}
 .adm-logo-text span{color:var(--saffron-light)}
 .adm-badge{background:var(--saffron);color:#fff;font-size:9px;font-weight:500;letter-spacing:0.1em;padding:3px 8px;border-radius:2px;text-transform:uppercase;margin-left:8px}
@@ -462,6 +466,53 @@ footer a:hover{color:var(--saffron-light)}
 .status-active{background:#D1FAE5;color:#065F46}
 .status-draft{background:#F3F4F6;color:#6B7280}
 
+/* ── TRUST STRIP ── */
+.trust-strip{
+  background:var(--teal-deep);padding:18px 52px;
+  display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;
+}
+.trust-item{display:flex;align-items:center;gap:10px}
+.trust-item-icon{font-size:22px}
+.trust-item-text strong{display:block;font-size:16px;font-weight:600;color:#fff;font-family:var(--fd)}
+.trust-item-text span{font-size:10px;color:rgba(255,255,255,0.5);letter-spacing:0.08em;text-transform:uppercase}
+.trust-divider{width:1px;height:36px;background:rgba(255,255,255,0.15)}
+
+/* ── TESTIMONIALS ── */
+.testimonials-section{background:var(--cream-dark);padding:72px 52px}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;max-width:1100px;margin:40px auto 0}
+.testi-card{
+  background:#fff;border-radius:4px;padding:28px;
+  border:1px solid var(--cream-border);
+  display:flex;flex-direction:column;gap:14px;
+}
+.testi-stars{color:#F59E0B;font-size:15px;letter-spacing:3px}
+.testi-text{font-size:14px;color:var(--text-mid);line-height:1.8;font-style:italic;flex:1}
+.testi-author{display:flex;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--cream-border)}
+.testi-avatar{
+  width:42px;height:42px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,var(--teal-deep),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:18px;color:#fff;font-weight:600;
+}
+.testi-name strong{display:block;font-size:14px;font-weight:500;color:var(--text)}
+.testi-name span{font-size:12px;color:var(--text-muted)}
+.testi-pkg{
+  display:inline-block;margin-top:4px;
+  background:var(--saffron-pale);color:var(--saffron);
+  font-size:10px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;
+  padding:2px 8px;border-radius:2px;
+}
+
+/* ── MOBILE WHATSAPP BAR ── */
+.mob-wa-bar{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:550;
+  background:#25D366;color:#fff;padding:14px 20px;
+  align-items:center;justify-content:center;gap:10px;
+  font-size:14px;font-weight:500;letter-spacing:0.03em;
+  text-decoration:none;box-shadow:0 -2px 16px rgba(0,0,0,0.15);
+}
+.mob-wa-bar svg{width:20px;height:20px;fill:#fff;flex-shrink:0}
+
 /* ── RESPONSIVE ── */
 @media(max-width:900px){
   #mainNav{padding:12px 20px}
@@ -481,10 +532,17 @@ footer a:hover{color:var(--saffron-light)}
   footer{padding:28px 20px;flex-direction:column;text-align:center}
   .adm-body{padding:20px}
   .fg-row,.fg-row3{grid-template-columns:1fr}
+  .trust-strip{gap:20px;padding:16px 20px}
+  .trust-divider{display:none}
+  .testimonials-section{padding:52px 20px}
+}
+@media(max-width:768px){
+  .mob-wa-bar{display:flex}
+  .wa-float{display:none!important}
+  body{padding-bottom:56px}
 }
 @media(max-width:600px){
   .gallery-grid{grid-template-columns:repeat(2,1fr)}
   .values-grid{grid-template-columns:1fr}
   .packages-grid{grid-template-columns:1fr}
-  .wa-float{bottom:20px;right:20px;width:52px;height:52px}
 }
