@@ -16,17 +16,42 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
+<style>
+/* ── BANNER ── */
+#siteBanner{display:none;background:var(--saffron);color:#fff;text-align:center;padding:10px 20px;font-size:14px;font-weight:500;letter-spacing:0.02em;position:relative;z-index:499;}
+/* ── DEPARTURES ── */
+#departuresSection{background:var(--teal-deep);padding:52px;display:none}
+#departuresSection h2{font-family:var(--fd);font-size:clamp(24px,3vw,38px);font-weight:300;color:#fff;margin-bottom:6px}
+#departuresSection h2 em{font-style:italic;color:var(--saffron-light)}
+#departuresSection p{color:rgba(255,255,255,0.6);font-size:14px;margin-bottom:28px}
+#departuresList{display:flex;flex-direction:column;gap:12px;max-width:800px;margin:0 auto}
+.dep-item{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
+.dep-date{font-family:var(--fd);font-size:18px;color:#fff;min-width:140px;font-weight:400}
+.dep-pkg{font-size:14px;color:rgba(255,255,255,0.8);flex:1}
+.dep-seats{font-size:13px;font-weight:500;color:rgba(255,255,255,0.7)}
+.dep-urgent{color:var(--saffron-light)!important}
+/* ── ADMIN TABS ── */
+.adm-tabs{display:flex;gap:0;border-bottom:2px solid #E8E4DC;margin-bottom:28px;flex-wrap:wrap}
+.adm-tab-btn{padding:11px 20px;font-size:13px;font-weight:500;color:var(--text-muted);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color 0.2s,border-color 0.2s;font-family:var(--fb);letter-spacing:0.02em}
+.adm-tab-btn.active{color:var(--teal);border-bottom-color:var(--teal)}
+.adm-tab-btn:hover:not(.active){color:var(--text)}
+.adm-tab-panel{display:none}
+.adm-tab-panel.active{display:block}
+.adm-testi-row{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid #F0EDE6}
+.adm-testi-row:last-child{border-bottom:none}
+.adm-testi-info{flex:1;font-size:14px;color:var(--text)}
+</style>
 </head>
 <body>
 
+<!-- Announcement Banner -->
+<div id="siteBanner"></div>
+
 <!-- ═══════════════════════════════════ NAV -->
 <nav id="mainNav">
-  <div class="nav-logo" onclick="showPage('home');renderPackages()">
+  <div class="nav-logo" onclick="showPage('home')">
     <img src="https://raw.githubusercontent.com/Psyhilll/dream-escape-holidays/main/images/logo.png" alt="Dream Escape Holidays Logo">
-    <div class="nav-logo-text">
-      Dream <span>Escape</span> Holidays
-      <small>dreamescapeholidays.com</small>
-    </div>
+    <div class="nav-logo-text">Dream <span>Escape</span> Holidays<small>dreamescapeholidays.com</small></div>
   </div>
   <div class="nav-links">
     <a onclick="showPage('home')">Home</a>
@@ -34,9 +59,7 @@
     <a onclick="showPage('about')">About Us</a>
     <a onclick="showPage('contact')">Contact</a>
   </div>
-  <button class="hamburger" onclick="toggleMobMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <button class="hamburger" onclick="toggleMobMenu()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- Mobile menu -->
@@ -48,7 +71,7 @@
   <a onclick="showPage('contact');toggleMobMenu()">Contact</a>
 </div>
 
-<!-- Floating WhatsApp Button -->
+<!-- Floating WhatsApp -->
 <a id="waFloat" class="wa-float" href="https://wa.me/919156136346" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
   <span class="wa-float-tooltip">Chat with us</span>
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.124.554 4.118 1.522 5.85L.057 23.7a.75.75 0 00.918.918l5.85-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.959 0-3.794-.5-5.394-1.378l-.386-.217-3.997 1 1-3.997-.217-.386A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
@@ -56,12 +79,11 @@
 
 <!-- ═══════════════════════════════════ HOME PAGE -->
 <div id="homePage" class="page active">
-
   <section class="hero">
     <div class="hero-content">
-      <span class="hero-badge">Explore Incredible India</span>
-      <h1>Where Every<br>Journey Becomes<br><em>a Story</em></h1>
-      <p>Handcrafted travel experiences across India's most breathtaking landscapes — from the high passes of Ladakh to the backwaters of Kerala.</p>
+      <span class="hero-badge" id="heroBadge">Explore Incredible India</span>
+      <h1 id="heroHead">Where Every Journey Becomes<br><em id="heroEm">a Story</em></h1>
+      <p id="heroSub">Handcrafted travel experiences across India's most breathtaking landscapes — from the high passes of Ladakh to the backwaters of Kerala.</p>
       <div class="hero-btns">
         <button class="btn-primary" onclick="document.getElementById('packagesSection').scrollIntoView({behavior:'smooth'})">Explore Packages</button>
         <button class="btn-ghost" onclick="showPage('contact')">Talk to Us</button>
@@ -72,39 +94,31 @@
 
   <!-- Trust Strip -->
   <div class="trust-strip">
-    <div class="trust-item">
-      <div class="trust-item-icon">😊</div>
-      <div class="trust-item-text"><strong>500+</strong><span>Happy Travellers</span></div>
-    </div>
+    <div class="trust-item"><div class="trust-item-icon">😊</div><div class="trust-item-text"><strong id="trustTravellers">500+</strong><span>Happy Travellers</span></div></div>
     <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-item-icon">🏔️</div>
-      <div class="trust-item-text"><strong>Since 2022</strong><span>Years of Experience</span></div>
-    </div>
+    <div class="trust-item"><div class="trust-item-icon">🏔️</div><div class="trust-item-text"><strong id="trustSince">Since 2022</strong><span>Years of Experience</span></div></div>
     <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-item-icon">⭐</div>
-      <div class="trust-item-text"><strong>4.9 / 5</strong><span>Customer Rating</span></div>
-    </div>
+    <div class="trust-item"><div class="trust-item-icon">⭐</div><div class="trust-item-text"><strong id="trustRating">4.9 / 5</strong><span>Customer Rating</span></div></div>
     <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-item-icon">🛡️</div>
-      <div class="trust-item-text"><strong>100% Safe</strong><span>Verified Operator</span></div>
-    </div>
+    <div class="trust-item"><div class="trust-item-icon">🛡️</div><div class="trust-item-text"><strong id="trustSafety">100% Safe</strong><span>Verified Operator</span></div></div>
   </div>
 
+  <!-- Packages -->
   <section id="packagesSection">
-    <div class="sec-head">
-      <p class="sec-eye">Curated Escapes</p>
-      <h2>Choose Your <em>Adventure</em></h2>
-      <p>Each package is thoughtfully designed with detailed itineraries, curated stays, and everything you need for a perfect trip.</p>
-    </div>
-    <div class="packages-wrap">
-      <div class="packages-grid" id="packagesGrid"></div>
-    </div>
+    <div class="sec-head"><p class="sec-eye">Curated Escapes</p><h2>Choose Your <em>Adventure</em></h2><p>Each package is thoughtfully designed with detailed itineraries, curated stays, and everything you need for a perfect trip.</p></div>
+    <div class="packages-wrap"><div class="packages-grid" id="packagesGrid"><p style="text-align:center;padding:40px;color:var(--text-muted)">Loading packages…</p></div></div>
   </section>
 
-  <!-- Why us strip -->
+  <!-- Upcoming Departures -->
+  <div id="departuresSection">
+    <div style="text-align:center;margin-bottom:28px">
+      <h2>Upcoming <em>Departures</em></h2>
+      <p>Fixed departure dates with guaranteed seats — book early to avoid missing out.</p>
+    </div>
+    <div id="departuresList"></div>
+  </div>
+
+  <!-- Why Us -->
   <div style="background:var(--cream-dark);padding:60px 52px;border-top:1px solid var(--cream-border);border-bottom:1px solid var(--cream-border)">
     <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px;text-align:center">
       <div><div style="font-size:28px;margin-bottom:10px">🏔️</div><div style="font-family:var(--fd);font-size:17px;color:var(--teal-deep);margin-bottom:6px">Expert-Led Trips</div><div style="font-size:13px;color:var(--text-muted)">Every route planned by people who've travelled it</div></div>
@@ -116,82 +130,23 @@
 
   <!-- Testimonials -->
   <section class="testimonials-section">
-    <div class="sec-head" style="padding-top:0">
-      <p class="sec-eye">What Travellers Say</p>
-      <h2>Real Stories, Real <em>Experiences</em></h2>
-      <p>Don't just take our word for it — here's what our travellers say about their dream escapes.</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Ladakh was always on my bucket list and Dream Escape made it absolutely perfect. The SUV transfers, the guesthouses, the guide who knew every pass by name — everything was top class. Not a single hiccup in 9 days.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">R</div>
-          <div class="testi-name">
-            <strong>Rahul Sharma</strong>
-            <span>Mumbai, Maharashtra</span>
-            <span class="testi-pkg">Ladakh Expedition</span>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">I was nervous travelling as a solo woman but the team at Dream Escape made me feel completely safe throughout. The itinerary was packed but never rushed. Pangong Lake at sunrise — I will never forget it.</p>
-        <div class="testi-author">
-          <div class="testi-avatar">P</div>
-          <div class="testi-name">
-            <strong>Priya Nair</strong>
-            <span>Bengaluru, Karnataka</span>
-            <span class="testi-pkg">Ladakh Expedition</span>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">Booked for our group of 8 friends. The coordination was flawless — permits, transfers, meals, everything sorted before we even arrived in Leh. Value for money is unbeatable. Already planning next year's trip with them!</p>
-        <div class="testi-author">
-          <div class="testi-avatar">A</div>
-          <div class="testi-name">
-            <strong>Arjun Mehta</strong>
-            <span>Pune, Maharashtra</span>
-            <span class="testi-pkg">Ladakh Expedition</span>
-          </div>
-        </div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-stars">★★★★★</div>
-        <p class="testi-text">My husband and I celebrated our anniversary in Ladakh with Dream Escape. The team arranged a surprise cake at the campsite by Pangong — it was the most thoughtful thing. Highly recommend for couples!</p>
-        <div class="testi-author">
-          <div class="testi-avatar">S</div>
-          <div class="testi-name">
-            <strong>Sneha Kulkarni</strong>
-            <span>Hyderabad, Telangana</span>
-            <span class="testi-pkg">Ladakh Expedition</span>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="sec-head" style="padding-top:0"><p class="sec-eye">What Travellers Say</p><h2>Real Stories, Real <em>Experiences</em></h2><p>Don't just take our word for it — here's what our travellers say about their dream escapes.</p></div>
+    <div class="testimonials-grid" id="testiGrid"></div>
   </section>
-
 </div><!-- /homePage -->
 
-<!-- Mobile WhatsApp Bar (shows only on mobile) -->
+<!-- Mobile WA Bar -->
 <a class="mob-wa-bar" href="https://wa.me/919156136346" target="_blank" rel="noopener">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.124.554 4.118 1.522 5.85L.057 23.7a.75.75 0 00.918.918l5.85-1.465A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.959 0-3.794-.5-5.394-1.378l-.386-.217-3.997 1 1-3.997-.217-.386A9.936 9.936 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
   Chat with us on WhatsApp
 </a>
 
-<!-- ═══════════════════════════════════ PACKAGE DETAIL PAGE -->
-<div id="pkgDetailPage" class="page">
-  <div id="pkgDetailContent"></div>
-</div>
+<!-- ═══════════════════════════════════ PACKAGE DETAIL -->
+<div id="pkgDetailPage" class="page"><div id="pkgDetailContent"></div></div>
 
-<!-- ═══════════════════════════════════ ABOUT PAGE -->
+<!-- ═══════════════════════════════════ ABOUT -->
 <div id="aboutPage" class="page">
-  <div class="about-hero">
-    <h1>We Live for <em>Travel</em></h1>
-    <p>Dream Escape Holidays was born from a simple belief — every Indian deserves to experience the extraordinary beauty of their own country and the world beyond.</p>
-  </div>
+  <div class="about-hero"><h1>We Live for <em>Travel</em></h1><p>Dream Escape Holidays was born from a simple belief — every Indian deserves to experience the extraordinary beauty of their own country and the world beyond.</p></div>
   <div class="about-body">
     <div class="about-grid">
       <div class="about-text">
@@ -200,9 +155,7 @@
         <p>From the frozen landscapes of Ladakh to the misty tea gardens of Darjeeling, we design each package with obsessive attention to detail — the right stays, the right routes, the right moments.</p>
         <p>Based in India, we understand Indian travellers — our budgets, our preferences, our love for authentic local food, and our need for a trustworthy partner on the road.</p>
       </div>
-      <div class="about-img">
-        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Mountain landscape">
-      </div>
+      <div class="about-img"><img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Mountain landscape"></div>
     </div>
     <div style="background:var(--saffron-pale);border-radius:4px;padding:36px;margin-bottom:48px;text-align:center">
       <div style="font-family:var(--fd);font-size:clamp(24px,3.5vw,40px);font-style:italic;color:var(--teal-deep);margin-bottom:8px">"Travel is not just a trip. It's a transformation."</div>
@@ -216,55 +169,30 @@
   </div>
 </div>
 
-<!-- ═══════════════════════════════════ CONTACT PAGE -->
+<!-- ═══════════════════════════════════ CONTACT -->
 <div id="contactPage" class="page">
-  <div class="contact-hero">
-    <h1>Get in <em>Touch</em></h1>
-    <p>We'd love to help you plan your next escape. Reach out on any channel.</p>
-  </div>
+  <div class="contact-hero"><h1>Get in <em>Touch</em></h1><p>We'd love to help you plan your next escape. Reach out on any channel.</p></div>
   <div class="contact-body">
     <div class="contact-info">
       <h3>Reach Us Directly</h3>
-      <div class="cinfo-item">
-        <div class="cinfo-icon wa">💬</div>
-        <div class="cinfo-text">
-          <strong>WhatsApp</strong>
-          <a href="https://wa.me/919156136346" target="_blank">+91 91561 36346</a>
-        </div>
-      </div>
-      <div class="cinfo-item">
-        <div class="cinfo-icon ph">📞</div>
-        <div class="cinfo-text">
-          <strong>Phone</strong>
-          <a href="tel:+919156136346">+91 91561 36346</a>
-        </div>
-      </div>
-      <div class="cinfo-item">
-        <div class="cinfo-icon em">✉️</div>
-        <div class="cinfo-text">
-          <strong>Email</strong>
-          <a href="mailto:sales@dreamescapeholidays.com">sales@dreamescapeholidays.com</a>
-        </div>
-      </div>
+      <div class="cinfo-item"><div class="cinfo-icon wa">💬</div><div class="cinfo-text"><strong>WhatsApp</strong><a class="dyn-wa" href="https://wa.me/919156136346">+91 91561 36346</a></div></div>
+      <div class="cinfo-item"><div class="cinfo-icon ph">📞</div><div class="cinfo-text"><strong>Phone</strong><a class="dyn-phone" href="tel:+919156136346">+91 91561 36346</a></div></div>
+      <div class="cinfo-item"><div class="cinfo-icon em">✉️</div><div class="cinfo-text"><strong>Email</strong><a class="dyn-email" href="mailto:sales@dreamescapeholidays.com">sales@dreamescapeholidays.com</a></div></div>
       <div style="margin-top:32px;padding:20px;background:var(--saffron-pale);border-radius:var(--radius)">
         <div style="font-family:var(--fd);font-size:17px;color:var(--teal-deep);margin-bottom:6px">Office Hours</div>
-        <div style="font-size:14px;color:var(--text-mid)">Mon – Sat: 9:00 AM – 7:00 PM IST<br>Sunday: 10:00 AM – 4:00 PM IST</div>
+        <div class="dyn-hours" style="font-size:14px;color:var(--text-mid)">Mon – Sat: 9:00 AM – 7:00 PM IST<br>Sunday: 10:00 AM – 4:00 PM IST</div>
       </div>
     </div>
     <div class="contact-form-wrap">
       <h3>Send an Enquiry</h3>
       <form class="cform" onsubmit="submitContact(event)">
         <input type="hidden" name="_subject" value="New Contact Enquiry — Dream Escape Holidays">
-        <input type="text"   name="name"        placeholder="Your name" required>
-        <input type="tel"    name="phone"       placeholder="Your phone / WhatsApp number" required>
-        <input type="email"  name="email"       placeholder="Email address (optional)">
-        <select name="package">
-          <option value="">Interested in which package?</option>
-          <option>Ladakh — The Roof of the World</option>
-          <option>Other / Not sure yet</option>
-        </select>
-        <input type="text"   name="dates"       placeholder="Preferred travel dates">
-        <input type="number" name="travellers"  placeholder="Number of travellers" min="1">
+        <input type="text"   name="name"       placeholder="Your name" required>
+        <input type="tel"    name="phone"      placeholder="Your phone / WhatsApp number" required>
+        <input type="email"  name="email"      placeholder="Email address (optional)">
+        <select name="package"><option value="">Interested in which package?</option><option>Ladakh — The Roof of the World</option><option>Other / Not sure yet</option></select>
+        <input type="text"   name="dates"      placeholder="Preferred travel dates">
+        <input type="number" name="travellers" placeholder="Number of travellers" min="1">
         <textarea name="message" placeholder="Tell us more about what you're looking for…"></textarea>
         <button type="submit" class="btn-primary">Send Enquiry</button>
       </form>
@@ -290,27 +218,19 @@
   <div class="footer-links">
     <a onclick="showPage('about')">About</a>
     <a onclick="showPage('contact')">Contact</a>
-    <a onclick="goAdmin()" style="cursor:pointer;font-size:11px;opacity:0.4;letter-spacing:0.05em">Admin</a>
+    <a onclick="goAdmin()" style="cursor:pointer;font-size:11px;opacity:0.35;letter-spacing:0.05em">Admin</a>
   </div>
 </footer>
 
 <!-- Lightbox -->
-<div id="lightbox">
-  <button id="lbClose" onclick="closeLightbox()">×</button>
-  <img id="lbImg" src="" alt="">
-</div>
-
-<!-- Toast -->
+<div id="lightbox"><button id="lbClose" onclick="closeLightbox()">×</button><img id="lbImg" src="" alt=""></div>
 <div class="toast" id="toast"></div>
 
 <!-- ═══════════════════════════════════ ADMIN LOGIN -->
 <div id="adminLogin">
   <div class="al-box">
-    <div class="logo">
-      <img src="https://raw.githubusercontent.com/Psyhilll/dream-escape-holidays/main/images/logo.png" alt="Logo">
-      <div class="logo-text">Dream <span>Escape</span></div>
-    </div>
-    <p>Admin Panel — Manage your packages</p>
+    <div class="logo"><img src="https://raw.githubusercontent.com/Psyhilll/dream-escape-holidays/main/images/logo.png" alt="Logo"><div class="logo-text">Dream <span>Escape</span></div></div>
+    <p>Admin Panel — Manage your website</p>
     <input type="text"     id="alUser" placeholder="Username">
     <input type="password" id="alPass" placeholder="Password">
     <button class="btn-primary" onclick="doLogin()">Sign In</button>
@@ -332,27 +252,148 @@
   </div>
   <div class="adm-body">
 
-    <!-- Dashboard -->
+    <!-- Dashboard with tabs -->
     <div id="admDashboard">
       <div class="adm-topbar">
-        <div><h1>Package Manager</h1><p>Add, edit, and manage all your holiday packages.</p></div>
-        <button class="btn-adm btn-adm-teal" onclick="showPkgForm(null)">+ Add New Package</button>
+        <div><h1>Website Manager</h1><p>All changes save permanently and go live instantly.</p></div>
       </div>
-      <div class="adm-card">
-        <h2>All Packages (<span id="admPkgCount">0</span>)</h2>
-        <div style="overflow-x:auto">
-          <table class="adm-table">
-            <thead><tr>
-              <th>Name</th><th>Category</th><th>Price (From)</th><th>Duration</th><th>Status</th><th>Actions</th>
-            </tr></thead>
-            <tbody id="admTableBody"></tbody>
-          </table>
-        </div>
-        <p id="admNoMsg" style="text-align:center;padding:28px 0;color:var(--text-muted);font-size:14px;display:none">No packages yet. Add your first package above.</p>
-      </div>
-    </div>
 
-    <!-- Package Form -->
+      <!-- Tab buttons -->
+      <div class="adm-tabs">
+        <button class="adm-tab-btn active" data-tab="packages" onclick="showAdmTab('packages')">📦 Packages</button>
+        <button class="adm-tab-btn" data-tab="testimonials" onclick="showAdmTab('testimonials')">⭐ Testimonials</button>
+        <button class="adm-tab-btn" data-tab="departures" onclick="showAdmTab('departures')">📅 Departures</button>
+        <button class="adm-tab-btn" data-tab="homepage" onclick="showAdmTab('homepage')">🏠 Homepage</button>
+        <button class="adm-tab-btn" data-tab="settings" onclick="showAdmTab('settings')">⚙️ Settings</button>
+      </div>
+
+      <!-- PACKAGES TAB -->
+      <div class="adm-tab-panel active" id="admTab_packages">
+        <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+          <button class="btn-adm btn-adm-teal" onclick="showPkgForm(null)">+ Add New Package</button>
+        </div>
+        <div class="adm-card">
+          <h2>All Packages (<span id="admPkgCount">0</span>)</h2>
+          <div style="overflow-x:auto">
+            <table class="adm-table">
+              <thead><tr><th>Name</th><th>Category</th><th>Price (From)</th><th>Duration</th><th>Status</th><th>Actions</th></tr></thead>
+              <tbody id="admTableBody"></tbody>
+            </table>
+          </div>
+          <p id="admNoMsg" style="text-align:center;padding:28px 0;color:var(--text-muted);font-size:14px;display:none">No packages yet. Add your first package above.</p>
+        </div>
+      </div>
+
+      <!-- TESTIMONIALS TAB -->
+      <div class="adm-tab-panel" id="admTab_testimonials">
+        <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+          <button class="btn-adm btn-adm-teal" onclick="showTestiForm(null)">+ Add Testimonial</button>
+        </div>
+        <div class="adm-card">
+          <h2>Customer Testimonials</h2>
+          <div id="admTestiList"></div>
+        </div>
+        <!-- Testimonial Form -->
+        <div class="adm-card" id="testiForm" style="display:none">
+          <h2>Add / Edit Testimonial</h2>
+          <div class="fg-row">
+            <div class="fg"><label>Customer Name</label><input id="teName" type="text" placeholder="e.g. Rahul Sharma"></div>
+            <div class="fg"><label>City</label><input id="teCity" type="text" placeholder="e.g. Mumbai, Maharashtra"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label>Package They Took</label><input id="tePkg" type="text" placeholder="e.g. Ladakh Expedition"></div>
+            <div class="fg"><label>Rating (1-5)</label>
+              <select id="teRating"><option value="5">★★★★★ (5)</option><option value="4">★★★★ (4)</option><option value="3">★★★ (3)</option></select>
+            </div>
+          </div>
+          <div class="fg"><label>Review Text</label><textarea id="teText" placeholder="What did they say about their experience?"></textarea></div>
+          <div style="display:flex;gap:10px;margin-top:4px">
+            <button class="btn-adm btn-adm-teal" id="saveTestiBtn" onclick="saveTestimonial()">Save Testimonial</button>
+            <button class="btn-adm btn-adm-light" onclick="cancelTestiForm()">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- DEPARTURES TAB -->
+      <div class="adm-tab-panel" id="admTab_departures">
+        <div style="display:flex;justify-content:flex-end;margin-bottom:16px">
+          <button class="btn-adm btn-adm-teal" onclick="showDepForm(null)">+ Add Departure</button>
+        </div>
+        <div class="adm-card">
+          <h2>Upcoming Departures</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">These show on the homepage with seats remaining. Great for creating urgency.</p>
+          <div id="admDepList"></div>
+        </div>
+        <!-- Departure Form -->
+        <div class="adm-card" id="depForm" style="display:none">
+          <h2>Add / Edit Departure</h2>
+          <div class="fg-row">
+            <div class="fg"><label>Date</label><input id="depDate" type="text" placeholder="e.g. 15 June 2025"></div>
+            <div class="fg"><label>Package Name</label><input id="depPkg" type="text" placeholder="e.g. Ladakh Expedition"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label>Seats Remaining</label><input id="depSeats" type="number" placeholder="e.g. 6" min="0"></div>
+            <div class="fg"><label>Status</label>
+              <select id="depActive"><option value="true">Active — Show on website</option><option value="false">Hidden</option></select>
+            </div>
+          </div>
+          <div style="display:flex;gap:10px;margin-top:4px">
+            <button class="btn-adm btn-adm-teal" id="saveDepBtn" onclick="saveDeparture()">Save Departure</button>
+            <button class="btn-adm btn-adm-light" onclick="cancelDepForm()">Cancel</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOMEPAGE TAB -->
+      <div class="adm-tab-panel" id="admTab_homepage">
+        <div class="adm-card">
+          <h2>Hero Section</h2>
+          <div class="fg"><label>Badge Text</label><input id="hBadge" type="text" placeholder="e.g. Explore Incredible India"></div>
+          <div class="fg"><label>Main Headline</label><input id="hHeadline" type="text" placeholder="e.g. Where Every Journey Becomes"></div>
+          <div class="fg"><label>Headline Italic Part</label><input id="hEm" type="text" placeholder="e.g. a Story"></div>
+          <div class="fg"><label>Subtext</label><textarea id="hSubtext" placeholder="The paragraph below the headline…"></textarea></div>
+        </div>
+        <div class="adm-card">
+          <h2>Trust Strip Numbers</h2>
+          <div class="fg-row">
+            <div class="fg"><label>Happy Travellers</label><input id="tTravellers" type="text" placeholder="e.g. 500+"></div>
+            <div class="fg"><label>Since</label><input id="tSince" type="text" placeholder="e.g. Since 2022"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label>Rating</label><input id="tRating" type="text" placeholder="e.g. 4.9 / 5"></div>
+            <div class="fg"><label>Safety Text</label><input id="tSafety" type="text" placeholder="e.g. 100% Safe"></div>
+          </div>
+        </div>
+        <div class="adm-card">
+          <h2>Announcement Banner</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">Shows a coloured bar at the very top of the website. Great for promotions.</p>
+          <div class="fg" style="flex-direction:row;align-items:center;gap:10px">
+            <input type="checkbox" id="bannerActive" style="width:18px;height:18px">
+            <label for="bannerActive" style="font-size:14px;text-transform:none;letter-spacing:0;color:var(--text)">Show banner on website</label>
+          </div>
+          <div class="fg"><label>Banner Text</label><input id="bannerText" type="text" placeholder="e.g. 🎉 Early bird discount on Ladakh — Book before July 15!"></div>
+        </div>
+        <button class="btn-adm btn-adm-teal" id="saveHeroBtn" style="padding:12px 32px;font-size:14px" onclick="saveHero()">Save Homepage Changes</button>
+      </div>
+
+      <!-- SETTINGS TAB -->
+      <div class="adm-tab-panel" id="admTab_settings">
+        <div class="adm-card">
+          <h2>Contact Details</h2>
+          <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">These update all WhatsApp links, phone numbers, and email across the entire website instantly.</p>
+          <div class="fg-row">
+            <div class="fg"><label>WhatsApp Number (with country code, no +)</label><input id="sWa" type="text" placeholder="e.g. 919156136346"></div>
+            <div class="fg"><label>Display Phone Number</label><input id="sPhone" type="text" placeholder="e.g. +91 91561 36346"></div>
+          </div>
+          <div class="fg"><label>Email Address</label><input id="sEmail" type="email" placeholder="e.g. sales@dreamescapeholidays.com"></div>
+          <div class="fg"><label>Office Hours</label><textarea id="sHours" placeholder="Mon – Sat: 9:00 AM – 7:00 PM IST&#10;Sunday: 10:00 AM – 4:00 PM IST"></textarea></div>
+          <button class="btn-adm btn-adm-teal" id="saveSettingsBtn" style="padding:12px 32px;font-size:14px" onclick="saveSettings()">Save Settings</button>
+        </div>
+      </div>
+
+    </div><!-- /admDashboard -->
+
+    <!-- Package Form (full page) -->
     <div id="admPkgForm" style="display:none">
       <div class="adm-topbar">
         <div><h1 id="admFormTitle">Add New Package</h1><p>Fill in all details for this holiday package.</p></div>
@@ -371,15 +412,12 @@
         </div>
         <div class="fg"><label>Short Description</label><textarea id="fDesc" placeholder="2–3 lines describing this experience…"></textarea></div>
         <div class="fg"><label>Status</label>
-          <select id="fStatus">
-            <option value="active">Active – Visible on website</option>
-            <option value="draft">Draft – Hidden from website</option>
-          </select>
+          <select id="fStatus"><option value="active">Active – Visible on website</option><option value="draft">Draft – Hidden from website</option></select>
         </div>
       </div>
       <div class="adm-card">
         <h2>Pricing Tiers</h2>
-        <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">Add different pricing options (e.g. Shared / Double / Triple). First tier price shows on card.</p>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:16px">Add different pricing options. First tier price shows on card.</p>
         <div id="tiersList"></div>
         <button class="btn-adm btn-adm-light" style="margin-top:4px" onclick="addTierRow()">+ Add Tier</button>
       </div>
@@ -393,16 +431,13 @@
       <div class="adm-card">
         <h2>Day-by-Day Itinerary</h2>
         <div class="itin-builder">
-          <div class="itin-builder-head">
-            <span>Itinerary Days</span>
-            <button class="btn-adm btn-adm-teal" style="padding:6px 14px;font-size:12px" onclick="addItinDay()">+ Add Day</button>
-          </div>
+          <div class="itin-builder-head"><span>Itinerary Days</span><button class="btn-adm btn-adm-teal" style="padding:6px 14px;font-size:12px" onclick="addItinDay()">+ Add Day</button></div>
           <div id="itinDaysList"></div>
         </div>
       </div>
       <div class="adm-card">
         <h2>Package Gallery</h2>
-        <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px">Upload images or paste image URLs. First image is used as the card cover.</p>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px">Upload images or paste URLs. First image is used as the card cover.</p>
         <div class="gallery-upload-area" onclick="document.getElementById('imgFileInput').click()">
           <input type="file" id="imgFileInput" accept="image/*" multiple onchange="handleImageUpload(event)">
           <div style="font-size:32px">🖼️</div>
@@ -419,10 +454,10 @@
         <button class="btn-adm btn-adm-teal" style="padding:12px 32px;font-size:14px" onclick="savePkg()">Save Package</button>
         <button class="btn-adm btn-adm-light" onclick="cancelPkgForm()">Cancel</button>
       </div>
-    </div>
+    </div><!-- /admPkgForm -->
 
   </div>
-</div>
+</div><!-- /adminPanel -->
 
 <script src="js/app.js"></script>
 </body>
