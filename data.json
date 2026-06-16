@@ -1,4 +1,61 @@
 {
+  "settings": {
+    "whatsapp": "919156136346",
+    "phone": "+91 91561 36346",
+    "email": "sales@dreamescapeholidays.com",
+    "hours": "Mon \u2013 Sat: 9:00 AM \u2013 7:00 PM IST\nSunday: 10:00 AM \u2013 4:00 PM IST"
+  },
+  "hero": {
+    "badge": "Explore Incredible India",
+    "headline": "Where Every Journey Becomes",
+    "headline_em": "a Story",
+    "subtext": "Handcrafted travel experiences across India's most breathtaking landscapes \u2014 from the high passes of Ladakh to the backwaters of Kerala."
+  },
+  "trust": {
+    "travellers": "500+",
+    "since": "Since 2022",
+    "rating": "4.9 / 5",
+    "safety": "100% Safe"
+  },
+  "banner": {
+    "active": false,
+    "text": "\ud83c\udf89 Early bird discount on Ladakh \u2014 Book before July 15!"
+  },
+  "departures": [],
+  "testimonials": [
+    {
+      "id": "t1",
+      "name": "Rahul Sharma",
+      "city": "Mumbai, Maharashtra",
+      "pkg": "Ladakh Expedition",
+      "text": "Ladakh was always on my bucket list and Dream Escape made it absolutely perfect. The SUV transfers, the guesthouses, the guide who knew every pass by name \u2014 everything was top class. Not a single hiccup in 9 days.",
+      "rating": 5
+    },
+    {
+      "id": "t2",
+      "name": "Priya Nair",
+      "city": "Bengaluru, Karnataka",
+      "pkg": "Ladakh Expedition",
+      "text": "I was nervous travelling as a solo woman but the team at Dream Escape made me feel completely safe throughout. The itinerary was packed but never rushed. Pangong Lake at sunrise \u2014 I will never forget it.",
+      "rating": 5
+    },
+    {
+      "id": "t3",
+      "name": "Arjun Mehta",
+      "city": "Pune, Maharashtra",
+      "pkg": "Ladakh Expedition",
+      "text": "Booked for our group of 8 friends. The coordination was flawless \u2014 permits, transfers, meals, everything sorted before we even arrived in Leh. Value for money is unbeatable. Already planning next year's trip with them!",
+      "rating": 5
+    },
+    {
+      "id": "t4",
+      "name": "Sneha Kulkarni",
+      "city": "Hyderabad, Telangana",
+      "pkg": "Ladakh Expedition",
+      "text": "My husband and I celebrated our anniversary in Ladakh with Dream Escape. The team arranged a surprise cake at the campsite by Pangong \u2014 it was the most thoughtful thing. Highly recommend for couples!",
+      "rating": 5
+    }
+  ],
   "packages": [
     {
       "id": "pkg_1",
