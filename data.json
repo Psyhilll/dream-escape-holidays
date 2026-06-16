@@ -3,13 +3,13 @@
     "whatsapp": "919156136346",
     "phone": "+91 91561 36346",
     "email": "sales@dreamescapeholidays.com",
-    "hours": "Mon \u2013 Sat: 9:00 AM \u2013 7:00 PM IST\nSunday: 10:00 AM \u2013 4:00 PM IST"
+    "hours": "Mon – Sat: 9:00 AM – 7:00 PM IST\nSunday: 10:00 AM – 4:00 PM IST"
   },
   "hero": {
     "badge": "Explore Incredible India",
     "headline": "Where Every Journey Becomes",
     "headline_em": "a Story",
-    "subtext": "Handcrafted travel experiences across India's most breathtaking landscapes \u2014 from the high passes of Ladakh to the backwaters of Kerala."
+    "subtext": "Handcrafted travel experiences across India's most breathtaking landscapes — from the high passes of Ladakh to the backwaters of Kerala."
   },
   "trust": {
     "travellers": "500+",
@@ -19,24 +19,16 @@
   },
   "banner": {
     "active": false,
-    "text": "\ud83c\udf89 Early bird discount on Ladakh \u2014 Book before July 15!"
+    "text": "🎉 Early bird discount on Ladakh — Book before July 15!"
   },
   "departures": [],
   "testimonials": [
-    {
-      "id": "t1",
-      "name": "Rahul Sharma",
-      "city": "Mumbai, Maharashtra",
-      "pkg": "Ladakh Expedition",
-      "text": "Ladakh was always on my bucket list and Dream Escape made it absolutely perfect. The SUV transfers, the guesthouses, the guide who knew every pass by name \u2014 everything was top class. Not a single hiccup in 9 days.",
-      "rating": 5
-    },
     {
       "id": "t2",
       "name": "Priya Nair",
       "city": "Bengaluru, Karnataka",
       "pkg": "Ladakh Expedition",
-      "text": "I was nervous travelling as a solo woman but the team at Dream Escape made me feel completely safe throughout. The itinerary was packed but never rushed. Pangong Lake at sunrise \u2014 I will never forget it.",
+      "text": "I was nervous travelling as a solo woman but the team at Dream Escape made me feel completely safe throughout. The itinerary was packed but never rushed. Pangong Lake at sunrise — I will never forget it.",
       "rating": 5
     },
     {
@@ -44,7 +36,7 @@
       "name": "Arjun Mehta",
       "city": "Pune, Maharashtra",
       "pkg": "Ladakh Expedition",
-      "text": "Booked for our group of 8 friends. The coordination was flawless \u2014 permits, transfers, meals, everything sorted before we even arrived in Leh. Value for money is unbeatable. Already planning next year's trip with them!",
+      "text": "Booked for our group of 8 friends. The coordination was flawless — permits, transfers, meals, everything sorted before we even arrived in Leh. Value for money is unbeatable. Already planning next year's trip with them!",
       "rating": 5
     },
     {
@@ -52,19 +44,19 @@
       "name": "Sneha Kulkarni",
       "city": "Hyderabad, Telangana",
       "pkg": "Ladakh Expedition",
-      "text": "My husband and I celebrated our anniversary in Ladakh with Dream Escape. The team arranged a surprise cake at the campsite by Pangong \u2014 it was the most thoughtful thing. Highly recommend for couples!",
+      "text": "My husband and I celebrated our anniversary in Ladakh with Dream Escape. The team arranged a surprise cake at the campsite by Pangong — it was the most thoughtful thing. Highly recommend for couples!",
       "rating": 5
     }
   ],
   "packages": [
     {
       "id": "pkg_1",
-      "name": "Ladakh \u2014 The Roof of the World",
-      "tag": "Adventure \u00b7 Ladakh",
+      "name": "Ladakh — The Roof of the World",
+      "tag": "Adventure · Ladakh",
       "duration": "8 Nights / 9 Days",
-      "season": "June \u2013 September",
-      "group": "6\u201312 people",
-      "desc": "Experience the raw, breathtaking beauty of Ladakh \u2014 high-altitude deserts, turquoise lakes, ancient monasteries, and star-filled skies unlike anywhere on Earth.",
+      "season": "June – September",
+      "group": "6–12 people",
+      "desc": "Experience the raw, breathtaking beauty of Ladakh — high-altitude deserts, turquoise lakes, ancient monasteries, and star-filled skies unlike anywhere on Earth.",
       "tiers": [
         {
           "label": "Triple Sharing",
@@ -83,7 +75,7 @@
       "excluded": "Airfare to Leh\nLunch\nPersonal expenses & tips\nTravel insurance\nAny activity not in itinerary",
       "itinerary": [
         {
-          "title": "Arrival in Leh \u2014 Acclimatisation",
+          "title": "Arrival in Leh — Acclimatisation",
           "desc": "Arrive in Leh (3500m). Rest and acclimatise. Evening walk around the local market. Welcome briefing over dinner."
         },
         {
@@ -95,15 +87,15 @@
           "desc": "Cross Khardung La (5359m), one of the worlds highest motorable passes. Arrive Nubra Valley, camel safari on the Bactrian camels."
         },
         {
-          "title": "Nubra Valley \u2014 Diskit & Hunder",
+          "title": "Nubra Valley — Diskit & Hunder",
           "desc": "Visit Diskit Monastery and the giant Maitreya Buddha statue. Explore sand dunes at Hunder village."
         },
         {
           "title": "Nubra to Pangong Lake",
-          "desc": "Drive through Shyok Valley to the iconic Pangong Tso lake (4350m). Watch the lake change colours \u2014 blue, turquoise, green."
+          "desc": "Drive through Shyok Valley to the iconic Pangong Tso lake (4350m). Watch the lake change colours — blue, turquoise, green."
         },
         {
-          "title": "Pangong Lake \u2014 Free Day",
+          "title": "Pangong Lake — Free Day",
           "desc": "Sunrise at the lake shore. Optional hike along the lakeside. Photography session at the famous 3 Idiots viewpoint."
         },
         {
