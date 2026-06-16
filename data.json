@@ -1,0 +1,76 @@
+{
+  "packages": [
+    {
+      "id": "pkg_1",
+      "name": "Ladakh \u2014 The Roof of the World",
+      "tag": "Adventure \u00b7 Ladakh",
+      "duration": "8 Nights / 9 Days",
+      "season": "June \u2013 September",
+      "group": "6\u201312 people",
+      "desc": "Experience the raw, breathtaking beauty of Ladakh \u2014 high-altitude deserts, turquoise lakes, ancient monasteries, and star-filled skies unlike anywhere on Earth.",
+      "tiers": [
+        {
+          "label": "Triple Sharing",
+          "price": "24500"
+        },
+        {
+          "label": "Double Sharing",
+          "price": "27000"
+        },
+        {
+          "label": "Single Room",
+          "price": "32000"
+        }
+      ],
+      "included": "Accommodation in guesthouses & camps\nBreakfast and dinner daily\nAll transfers in comfortable SUVs\nExperienced local guide\nInner Line Permit & entry fees\nOxygen cylinders for emergencies",
+      "excluded": "Airfare to Leh\nLunch\nPersonal expenses & tips\nTravel insurance\nAny activity not in itinerary",
+      "itinerary": [
+        {
+          "title": "Arrival in Leh \u2014 Acclimatisation",
+          "desc": "Arrive in Leh (3500m). Rest and acclimatise. Evening walk around the local market. Welcome briefing over dinner."
+        },
+        {
+          "title": "Leh Local Sightseeing",
+          "desc": "Visit Shanti Stupa, Leh Palace, and the vibrant Leh Market. Easy acclimatisation hike in the evening."
+        },
+        {
+          "title": "Leh to Nubra Valley via Khardung La",
+          "desc": "Cross Khardung La (5359m), one of the worlds highest motorable passes. Arrive Nubra Valley, camel safari on the Bactrian camels."
+        },
+        {
+          "title": "Nubra Valley \u2014 Diskit & Hunder",
+          "desc": "Visit Diskit Monastery and the giant Maitreya Buddha statue. Explore sand dunes at Hunder village."
+        },
+        {
+          "title": "Nubra to Pangong Lake",
+          "desc": "Drive through Shyok Valley to the iconic Pangong Tso lake (4350m). Watch the lake change colours \u2014 blue, turquoise, green."
+        },
+        {
+          "title": "Pangong Lake \u2014 Free Day",
+          "desc": "Sunrise at the lake shore. Optional hike along the lakeside. Photography session at the famous 3 Idiots viewpoint."
+        },
+        {
+          "title": "Pangong to Leh via Chang La",
+          "desc": "Return to Leh crossing Chang La Pass (5360m). Visit Hemis Monastery en route."
+        },
+        {
+          "title": "Magnetic Hill & Indus Valley",
+          "desc": "Visit Magnetic Hill, Gurudwara Pathar Sahib, Sangam confluence of Indus and Zanskar. Evening in Leh free."
+        },
+        {
+          "title": "Departure",
+          "desc": "Transfer to Leh airport for your onward journey. Carry the memories of a lifetime."
+        }
+      ],
+      "gallery": [
+        "https://images.unsplash.com/photo-1626621341517-bbf3d9990a23?w=800&q=75",
+        "https://images.unsplash.com/photo-1605640840605-14ac1855827b?w=800&q=75",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=75",
+        "https://images.unsplash.com/photo-1573921470445-8d99e4bd4d08?w=800&q=75",
+        "https://images.unsplash.com/photo-1583396958988-3fb8c3c8b779?w=800&q=75",
+        "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=75"
+      ],
+      "status": "active"
+    }
+  ]
+}
