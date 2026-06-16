@@ -71,7 +71,7 @@ button{font-family:var(--fb)}
 
 /* ── FLOATING WHATSAPP ── */
 .wa-float{
-  position:fixed;bottom:28px;right:28px;z-index:600;
+  position:fixed;bottom:90px;right:28px;z-index:600;
   width:58px;height:58px;border-radius:50%;
   background:#25D366;
   display:flex;align-items:center;justify-content:center;
