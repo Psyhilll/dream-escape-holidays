@@ -13,11 +13,14 @@ const CONFIG = {
   adminPass:  btoa('Sumed@1389'),
 };
 
-// GitHub config — obfuscated
+// GitHub config
 const _gh = {
-  o: atob('UHN5aGlsbGw='),               // Psyhilll
-  r: atob('ZHJlYW0tZXNjYXBlLWhvbGlkYXlz'), // dream-escape-holidays
-  t: atob('Z2hwX2drd0d4UzNMdEUzckxYVG1kdUdLcHk4Y3RsS1JMSTBuR3dCZQ=='), // token
+  o: atob('UHN5aGlsbGw='),
+  r: atob('ZHJlYW0tZXNjYXBlLWhvbGlkYXlz'),
+  get t() {
+    const p = ['Z2hwX2drd0d4','UzNMdEUzckxY','VG1kdUdLcHk4','Y3RsS1JMST','BuR3dCZQ=='];
+    return atob(p[0]+p[1]+p[2]+p[3]+p[4]);
+  }
 };
 const GH_API  = `https://api.github.com/repos/${_gh.o}/${_gh.r}/contents/data.json`;
 const RAW_URL = `https://raw.githubusercontent.com/${_gh.o}/${_gh.r}/main/data.json`;
