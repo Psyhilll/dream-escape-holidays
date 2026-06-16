@@ -18,7 +18,7 @@
     "safety": "100% Safe"
   },
   "banner": {
-    "active": false,
+    "active": true,
     "text": "🎉 Early bird discount on Ladakh — Book before July 15!"
   },
   "departures": [],
